@@ -1,0 +1,5 @@
+Set up symbolic links like so:
+./vimrc                 -> ~/.vimrc
+./ftdetect/notes.vim    -> ~/.vim/ftdetect/notes.vim
+./colors/orclord.vim    -> ~/.vim/colors/orclord.vim
+./syntax/note.vim       -> ~/.vim/syntax/note.vim

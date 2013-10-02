@@ -1,0 +1,118 @@
+"Enable syntax highlighting."
+set t_Co=256
+syntax on
+color orclord
+
+" Uncomment the following block to convert gui colours to terminal colours.
+"if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
+"  \ filereadable(expand("/usr/share/vim/vimfiles/plugin/guicolorscheme.vim"))
+"" Use the guicolorscheme plugin to makes 256-color or 88-color
+"" terminal use GUI colors rather than cterm colors.
+"  runtime! plugin/guicolorscheme.vim
+"  GuiColorScheme dwarflord
+"else
+"" For 8-color 16-color terminals or for gvim, just use the
+"" regular :colorscheme command.
+" colorscheme default
+"endif
+
+" This adds syntax highlighting to `set -o vi' mode in bash:
+au BufRead,BufNewFile bash-fc-* set filetype=sh
+" This is a workaround for a won't-fix bug in bash syntax highlighting.
+let g:vimsyn_noerror= 1 
+
+"Transparent background"
+hi Normal ctermbg=NONE
+hi Visual term=reverse cterm=reverse
+
+"Permit use of the mouse."
+set mouse=a
+
+"Disable highlighting of search terms, as it becomes distracting."
+set nohlsearch
+
+"... but do highlight while a search is in progress.
+set incsearch
+
+"Autocompletion fun.
+set infercase
+filetype plugin on
+set ofu=syntaxcomplete#Complete
+
+"Set indentation behaviour."
+set autoindent
+set smartindent
+set expandtab
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+"Reduce the interference created by running shell commands."
+set shortmess=at
+
+"Set the print header. See help: statusline for explanation of symbols."
+set pheader=%F%=%-%Page\ %N
+
+"Set up folding.
+set foldmethod=indent
+nnoremap <space> za
+vnoremap <space> zf
+
+"Save the current file, then run build."
+"Build is a bash script that looks for makefiles and executes them."
+map #5 :w \|! %
+map #6 :w \| so %
+
+" Show syntax group under the cursor.
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+"Make buffers easier to work with. Kwbd is defined in plugin/bclose.vim"
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+nnoremap <C-W> :Kwbd<CR>
+
+"Jump between matching brackets, highlighting text in between."
+noremap % v%
+filetype on
+augroup vimrc_filetype
+ autocmd!
+ autocmd FileType c call s:MyCSettings()
+ autocmd FileType vim call s:MyVimSettings()
+ autocmd FileType r\|perl\|sh call s:HashComments()
+ autocmd FileType tex call s:MyTeXSettings()
+ autocmd FileType python call s:MyPySettings()
+ autocmd FileType tex\|note call s:FormatText()
+augroup end
+
+" Clear all comment markers (one rule for all languages)
+map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+
+function! s:MyCSettings()
+  " Insert comments markers
+  map - :s/^/\/\//<CR>:nohlsearch<CR>
+endfunction
+
+function! s:MyVimSettings()
+  " Insert comments markers
+  map - :s/^/\"/<CR>:nohlsearch<CR>
+endfunction
+
+function! s:HashComments()
+  " Insert comments markers
+  map - :s/^/#/<CR>:nohlsearch<CR>
+endfunction
+
+function! s:MyTeXSettings()
+    map #3 :w \| ! pdflatex main.tex
+endfunction
+
+function! s:MyPySettings()
+    set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+endfunction
+
+function! s:FormatText()
+    set tw=72
+endfunction
