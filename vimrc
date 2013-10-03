@@ -90,7 +90,7 @@ augroup vimrc_filetype
  autocmd FileType r\|perl\|sh call s:HashComments()
  autocmd FileType tex call s:MyTeXSettings()
  autocmd FileType python call s:MyPySettings()
- autocmd FileType tex\|note\|asciidoc call s:FormatText()
+ autocmd FileType tex\|note\|asciidoc\|rst call s:FormatText()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
