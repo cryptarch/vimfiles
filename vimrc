@@ -74,6 +74,12 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <C-W> :Kwbd<CR>
 
+" Navigate b/w panes.
+nmap <silent> <C-J> :wincmd j<CR>
+nmap <silent> <C-K> :wincmd k<CR>
+nmap <silent> <C-H> :wincmd h<CR>
+nmap <silent> <C-L> :wincmd l<CR>
+
 "Jump between matching brackets, highlighting text in between."
 noremap % v%
 filetype on
