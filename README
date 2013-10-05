@@ -3,3 +3,6 @@ Set up symbolic links like so:
 ./ftdetect/notes.vim    -> ~/.vim/ftdetect/notes.vim
 ./colors/orclord.vim    -> ~/.vim/colors/orclord.vim
 ./syntax/note.vim       -> ~/.vim/syntax/note.vim
+
+The "bclose" plugin for simplifying buffer management care of
+http://vim.wikia.com/wiki/Deleting_a_buffer_without_closing_the_window
