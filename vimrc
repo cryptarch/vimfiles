@@ -91,7 +91,7 @@ augroup vimrc_filetype
  autocmd FileType tex call s:MyTeXSettings()
  autocmd FileType python call s:MyPySettings()
  autocmd FileType tex\|note\|asciidoc\|rst call s:FormatText()
- autocmd FileType rst call s:SmallTabs()
+ autocmd FileType mail\|rst call s:SmallTabs()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
