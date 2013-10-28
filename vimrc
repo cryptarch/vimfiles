@@ -1,3 +1,8 @@
+" Nocompatible is required by vimwiki.
+" The vim help advises that if this option is set, it should be set at the top
+" of the vimrc.
+set nocompatible
+
 "Enable syntax highlighting."
 set t_Co=256
 syntax on
