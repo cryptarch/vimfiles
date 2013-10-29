@@ -54,7 +54,9 @@ set softtabstop=4
 set shiftwidth=4
 
 "Reduce the interference created by running shell commands."
-set shortmess=at
+" Furthermore, reduce interference when creating/opening new links in vimwiki.
+" Ref h: press-enter, h: shortmess
+set shortmess=aoOtTW
 
 "Set the print header. See help: statusline for explanation of symbols."
 set pheader=%F%=%-%Page\ %N
