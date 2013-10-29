@@ -95,6 +95,9 @@ nmap <silent> <C-L> :wincmd l<CR>
 "Jump between matching brackets, highlighting text in between."
 noremap % v%
 
+" Command to open help in a vertical split.
+cnoremap vh vert botright help 
+
 " Deal with specific file types.
 filetype on
 augroup vimrc_filetype
