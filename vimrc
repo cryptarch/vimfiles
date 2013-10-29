@@ -107,6 +107,7 @@ augroup vimrc_filetype
  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
  autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
  autocmd FileType vimwiki call s:WikiCompat()
+ autocmd FileType vimwiki call s:WikiList()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
@@ -151,4 +152,13 @@ function! s:WikiCompat()
     nunmap <buffer><S-Tab>
 endfunction
 
+function! s:WikiList()
+    let wiki = {}
+    let wiki.path= '~/vimwiki/'
+    let wiki.diary_rel_path = ''
+    let bib = {}
+    let bib.path = '~/vimwiki/bibtex/'
+    let bib.ext = '.bib'
+    let g:vimwiki_list = [wiki, bib]
+endfunction
 
