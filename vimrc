@@ -61,6 +61,12 @@ set pheader=%F%=%-%Page\ %N
 
 "Set up folding.
 set foldmethod=indent
+
+
+""""""""""""
+""" Mappings
+
+" Accordion folds.
 nnoremap <space> za
 vnoremap <space> zf
 
@@ -73,6 +79,7 @@ map #6 :w \| so %
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 
 "Make buffers easier to work with. Kwbd is defined in plugin/bclose.vim"
 nnoremap <Tab> :bnext<CR>
@@ -87,6 +94,8 @@ nmap <silent> <C-L> :wincmd l<CR>
 
 "Jump between matching brackets, highlighting text in between."
 noremap % v%
+
+" Deal with specific file types.
 filetype on
 augroup vimrc_filetype
  autocmd!
@@ -97,6 +106,7 @@ augroup vimrc_filetype
  autocmd FileType python call s:MyPySettings()
  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
  autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
+ autocmd FileType vimwiki call s:WikiCompat()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
@@ -134,3 +144,11 @@ function! s:SmallTabs()
     set softtabstop=2
     set shiftwidth=2
 endfunction
+
+function! s:WikiCompat()
+    " Vimwiki is a bit obnoxious about overwriting useful mappings.
+    nunmap <buffer><Tab>
+    nunmap <buffer><S-Tab>
+endfunction
+
+
