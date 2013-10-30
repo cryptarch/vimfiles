@@ -103,6 +103,7 @@ cnoremap vh vert botright help
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pi
 inoremap <C-X> <esc>"+pi
+nnoremap <C-X> "+pi
 
 " Deal with specific file types.
 filetype on
@@ -159,6 +160,7 @@ function! s:WikiCompat()
     " Vimwiki is a bit obnoxious about overwriting useful mappings.
     nunmap <buffer><Tab>
     nunmap <buffer><S-Tab>
+    au BufRead,BufNewFile *.bib set filetype=bib
 endfunction
 
 function! s:WikiList()
