@@ -100,6 +100,10 @@ noremap % v%
 " Command to open help in a vertical split.
 cnoremap vh vert botright help 
 
+" Commands to insert useful information.
+inoremap <C-N> <esc>"%pi
+inoremap <C-X> <esc>"+pi
+
 " Deal with specific file types.
 filetype on
 augroup vimrc_filetype
@@ -160,11 +164,14 @@ endfunction
 function! s:WikiList()
 endfunction
 
-let phdwiki = {}
-let phdwiki.path= '~/phdwiki/'
-let phdwiki.diary_rel_path = ''
-let phdwiki.nested_syntaxes = {'vim': 'vim'}
+let phd = {}
+let phd.path= '~/phdwiki/'
+let phd.diary_rel_path = ''
+let phd.nested_syntaxes = {'vim': 'vim'}
 let bib = {}
 let bib.path = '~/phdwiki/bibtex/'
 let bib.ext = '.bib'
-let g:vimwiki_list = [phdwiki, bib]
+let mundane = {}
+let mundane.path = '~/extramuros/'
+let mundane.diary_rel_path = ''
+let g:vimwiki_list = [phd, bib, mundane]
