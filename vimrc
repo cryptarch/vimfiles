@@ -103,7 +103,7 @@ cnoremap vh vert botright help
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pi
 inoremap <C-X> <esc>"+pi
-nnoremap <C-X> "+pi
+nnoremap <C-X> "+p
 
 " Deal with specific file types.
 filetype on
