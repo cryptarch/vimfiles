@@ -158,13 +158,13 @@ function! s:WikiCompat()
 endfunction
 
 function! s:WikiList()
-    let phdwiki = {}
-    let phdwiki.path= '~/phdwiki/'
-    let phdwiki.diary_rel_path = ''
-    let phdwiki.nested_syntaxes = {'vim': 'vim'}
-    let bib = {}
-    let bib.path = '~/phdwiki/bibtex/'
-    let bib.ext = '.bib'
-    let g:vimwiki_list = [phdwiki, bib]
 endfunction
 
+let phdwiki = {}
+let phdwiki.path= '~/phdwiki/'
+let phdwiki.diary_rel_path = ''
+let phdwiki.nested_syntaxes = {'vim': 'vim'}
+let bib = {}
+let bib.path = '~/phdwiki/bibtex/'
+let bib.ext = '.bib'
+let g:vimwiki_list = [phdwiki, bib]
