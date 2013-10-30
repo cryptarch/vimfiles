@@ -117,7 +117,7 @@ augroup vimrc_filetype
   autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
   autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
   autocmd FileType vimwiki call s:WikiCompat()
-  autocmd FileType vimwiki call s:WikiList()
+  autocmd FileType vimwiki call s:WikiDates()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
@@ -163,7 +163,8 @@ function! s:WikiCompat()
     au BufRead,BufNewFile *.bib set filetype=bib
 endfunction
 
-function! s:WikiList()
+function! s:WikiDates()
+    vnoremap <C-D> xi[[diary:<esc>pa\|<esc>pa]]<esc>
 endfunction
 
 let phd = {}
