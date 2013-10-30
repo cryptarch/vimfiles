@@ -102,6 +102,7 @@ cnoremap vh vert botright help
 
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pi
+nnoremap <C-N> <esc>"%p
 inoremap <C-X> <esc>"+pi
 nnoremap <C-X> "+p
 
