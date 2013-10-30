@@ -103,16 +103,16 @@ cnoremap vh vert botright help
 " Deal with specific file types.
 filetype on
 augroup vimrc_filetype
- autocmd!
- autocmd FileType c call s:MyCSettings()
- autocmd FileType vim call s:MyVimSettings()
- autocmd FileType r\|perl\|sh call s:HashComments()
- autocmd FileType tex call s:MyTeXSettings()
- autocmd FileType python call s:MyPySettings()
- autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
- autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
- autocmd FileType vimwiki call s:WikiCompat()
- autocmd FileType vimwiki call s:WikiList()
+  autocmd!
+  autocmd FileType c call s:MyCSettings()
+  autocmd FileType vim call s:MyVimSettings()
+  autocmd FileType r\|perl\|sh call s:HashComments()
+  autocmd FileType tex call s:MyTeXSettings()
+  autocmd FileType python call s:MyPySettings()
+  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
+  autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
+  autocmd FileType vimwiki call s:WikiCompat()
+  autocmd FileType vimwiki call s:WikiList()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
@@ -158,12 +158,13 @@ function! s:WikiCompat()
 endfunction
 
 function! s:WikiList()
-    let wiki = {}
-    let wiki.path= '~/vimwiki/'
-    let wiki.diary_rel_path = ''
+    let phdwiki = {}
+    let phdwiki.path= '~/phdwiki/'
+    let phdwiki.diary_rel_path = ''
+    let phdwiki.nested_syntaxes = {'vim': 'vim'}
     let bib = {}
-    let bib.path = '~/vimwiki/bibtex/'
+    let bib.path = '~/phdwiki/bibtex/'
     let bib.ext = '.bib'
-    let g:vimwiki_list = [wiki, bib]
+    let g:vimwiki_list = [phdwiki, bib]
 endfunction
 
