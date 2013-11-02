@@ -72,10 +72,6 @@ set foldmethod=indent
 nnoremap <space> za
 vnoremap <space> zf
 
-"Save the current file, then run build."
-"Build is a bash script that looks for makefiles and executes them."
-map #5 :w \|! %
-map #6 :w \| so %
 
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -110,10 +106,11 @@ nnoremap <C-X> "+p
 filetype on
 augroup vimrc_filetype
   autocmd!
+  autocmd FileType sh call s:MyShSettings()
   autocmd FileType c call s:MyCSettings()
   autocmd FileType vim call s:MyVimSettings()
   autocmd FileType r\|perl\|sh call s:HashComments()
-  autocmd FileType tex call s:MyTeXSettings()
+  autocmd FileType tex\|plaintex call s:MyTeXSettings()
   autocmd FileType python call s:MyPySettings()
   autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
   autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
@@ -139,8 +136,13 @@ function! s:HashComments()
   map - :s/^/#/<CR>:nohlsearch<CR>
 endfunction
 
+function! s:MyShSettings()
+    map #5 :w \|! %
+    map #6 :w \| so %
+endfunction
+
 function! s:MyTeXSettings()
-    map #3 :w \| ! pdflatex main.tex
+    map #3 :w \|! pdflatex main.tex<CR>
 endfunction
 
 function! s:MyPySettings()
