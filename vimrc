@@ -173,7 +173,7 @@ endfunction
 let phd = {}
 let phd.path= '~/phdwiki/'
 let phd.diary_rel_path = ''
-let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh'}
+let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex'}
 let bib = {}
 let bib.path = '~/phdwiki/bibtex/'
 let bib.ext = '.bib'
