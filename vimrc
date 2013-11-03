@@ -142,7 +142,7 @@ function! s:MyShSettings()
 endfunction
 
 function! s:MyTeXSettings()
-    map #3 :w \|! pdflatex main.tex<CR>
+    map #3 :w \|! pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
 endfunction
 
 function! s:MyPySettings()
