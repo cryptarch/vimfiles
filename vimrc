@@ -72,6 +72,8 @@ set foldmethod=indent
 nnoremap <space> za
 vnoremap <space> zf
 
+" Avoid annoying E173 error when opening multiple files.
+cnoremap q qa
 
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -181,3 +183,4 @@ let mundane = {}
 let mundane.path = '~/extramuros/'
 let mundane.diary_rel_path = ''
 let g:vimwiki_list = [phd, bib, mundane]
+
