@@ -105,7 +105,7 @@ inoremap <C-X> <esc>"+pi
 nnoremap <C-X> "+p
 " TODO: Make the following fail gracefully if ~/cb doesn't exist.
 inoremap <C-S-X> <esc>:r ~/cb<CR>i
-nnoremap <C-S-X> :r ~/cb
+nnoremap <C-S-X> :r ~/cb<CR>
 
 " Deal with specific file types.
 filetype on
