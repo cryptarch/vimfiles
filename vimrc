@@ -172,7 +172,7 @@ function! s:WikiCompat()
 endfunction
 
 function! s:WikiDates()
-    vnoremap <C-D> xi[[diary:<esc>pa\|<esc>pa]]<esc>
+    vnoremap <C-D> xa[[diary:<esc>pa\|<esc>pa]]<esc>
 endfunction
 
 let phd = {}
