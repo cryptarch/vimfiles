@@ -103,6 +103,7 @@ inoremap <C-N> <esc>"%pi
 nnoremap <C-N> <esc>"%p
 inoremap <C-X> <esc>"+pi
 nnoremap <C-X> "+p
+inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
 " TODO: Make the following fail gracefully if ~/cb doesn't exist.
 inoremap <C-P> <esc>:r ~/cb<CR>i
 nnoremap <C-P> :r ~/cb<CR>
