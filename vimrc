@@ -103,6 +103,7 @@ inoremap <C-N> <esc>"%pi
 nnoremap <C-N> <esc>"%p
 inoremap <C-X> <esc>"+pi
 nnoremap <C-X> "+p
+inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
 " TODO: Make the following fail gracefully if ~/cb doesn't exist.
 inoremap <C-P> <esc>:r ~/cb<CR>i
 nnoremap <C-P> :r ~/cb<CR>
@@ -117,6 +118,7 @@ augroup vimrc_filetype
   autocmd FileType r\|perl\|sh call s:HashComments()
   autocmd FileType tex\|plaintex call s:MyTeXSettings()
   autocmd FileType python call s:MyPySettings()
+  autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
   autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
   autocmd FileType vimwiki call s:WikiCompat()
@@ -154,6 +156,9 @@ function! s:MyPySettings()
     set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 endfunction
 
+function! s:MyHaskellSettings()
+endfunction
+
 function! s:FormatText()
     set tw=72
 endfunction
@@ -183,8 +188,11 @@ let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'te
 let bib = {}
 let bib.path = '~/phdwiki/bibtex/'
 let bib.ext = '.bib'
+let rss = {}
+let rss.path = '~/phdwiki/rss/'
+let rss.ext = '.txt'
 let mundane = {}
 let mundane.path = '~/extramuros/'
 let mundane.diary_rel_path = ''
-let g:vimwiki_list = [phd, bib, mundane]
+let g:vimwiki_list = [phd, bib, rss, mundane]
 
