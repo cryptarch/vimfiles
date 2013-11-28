@@ -173,6 +173,7 @@ endfunction
 
 function! s:WikiDates()
     vnoremap <C-D> xa[[diary:<esc>pa\|<esc>pa]]<esc>
+
 endfunction
 
 let phd = {}
