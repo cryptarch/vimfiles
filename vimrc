@@ -150,6 +150,7 @@ endfunction
 
 function! s:MyTeXSettings()
     map #3 :w \|! pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
+    map #4 :! bibtex -terse main.aux && pdflatex --interaction=batchmode main.tex > /dev/null && pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
 endfunction
 
 function! s:MyPySettings()
