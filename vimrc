@@ -1,5 +1,5 @@
 " Nocompatible is required by vimwiki.
-" The vim help advises that if this option is set, it should be set at the top
+" Vim-help advises that if this option is set, it should be set at the top
 " of the vimrc.
 set nocompatible
 
@@ -68,8 +68,9 @@ set foldmethod=indent
 """"""""""""
 """ Mappings
 
-" Accordion folds.
+" Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
+nnoremap f zA
 vnoremap <space> zf
 
 " Avoid annoying E173 error when opening multiple files.
