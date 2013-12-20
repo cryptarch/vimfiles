@@ -163,6 +163,9 @@ endfunction
 
 function! s:FormatText()
     set tw=72
+    vnoremap <C-f> {gq}
+    nnoremap <C-f> vgq
+    inoremap <C-f> <esc>vgqi
 endfunction
 
 function! s:SmallTabs()
@@ -180,7 +183,6 @@ endfunction
 
 function! s:WikiDates()
     vnoremap <C-D> xa[[diary:<esc>pa\|<esc>pa]]<esc>
-
 endfunction
 
 let phd = {}
