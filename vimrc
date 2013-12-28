@@ -93,6 +93,9 @@ nmap <silent> <C-K> :wincmd k<CR>
 nmap <silent> <C-H> :wincmd h<CR>
 nmap <silent> <C-L> :wincmd l<CR>
 
+" General navigation.
+nnoremap z bbe
+
 "Jump between matching brackets, highlighting text in between."
 noremap % v%
 
