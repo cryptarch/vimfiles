@@ -123,8 +123,10 @@ augroup vimrc_filetype
   autocmd FileType tex\|plaintex call s:MyTeXSettings()
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
+  autocmd FileType mail call s:EmailSpelling()
   autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
   autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
+  autocmd FileType vimwiki\|mail\|rst call s:GrammarCheck()
   autocmd FileType vimwiki call s:WikiCompat()
   autocmd FileType vimwiki call s:WikiDates()
 augroup end
@@ -153,10 +155,18 @@ function! s:MyShSettings()
 endfunction
 
 function! s:MyTeXSettings()
-    map #1 :w \|! aspell check -t %<CR>
-    map #2 :w \|! detex % \| style<CR>
-    map #3 :w \|! pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
-    map #4 :! bibtex -terse main.aux && pdflatex --interaction=batchmode main.tex > /dev/null && pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
+    nnoremap #1 :w \|! aspell check -t %<CR>
+    nnoremap #2 :w \|! detex % \| style<CR>
+    nnoremap #3 :w \|! pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
+    nnoremap #4 :! bibtex -terse main.aux && pdflatex --interaction=batchmode main.tex > /dev/null && pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
+endfunction
+
+function! s:EmailSpelling()
+    nnoremap #1 :w \|! aspell check -e %<CR>
+endfunction
+
+function! s:GrammarCheck()
+    nnoremap #2 :w \|! style %<CR>
 endfunction
 
 function! s:MyPySettings()
