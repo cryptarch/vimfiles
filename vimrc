@@ -5,6 +5,7 @@ set nocompatible
 
 " http://vim.wikia.com/wiki/Modeline_magic
 set modeline
+set modelines=5
 
 "Enable syntax highlighting."
 set t_Co=256
@@ -23,6 +24,9 @@ color orclord
 "" regular :colorscheme command.
 " colorscheme default
 "endif
+
+" Custom filetypes.
+au BufRead,BufNewFile *.muttrc set filetype=muttrc
 
 " This adds syntax highlighting to `set -o vi' mode in bash:
 au BufRead,BufNewFile bash-fc-* set filetype=sh
