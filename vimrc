@@ -3,6 +3,9 @@
 " of the vimrc.
 set nocompatible
 
+" http://vim.wikia.com/wiki/Modeline_magic
+set modeline
+
 "Enable syntax highlighting."
 set t_Co=256
 syntax on
