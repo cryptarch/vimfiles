@@ -7,6 +7,9 @@ set nocompatible
 set modeline
 set modelines=5
 
+" h: backupdir `If you want to hide your backup files on Unix ...'
+set backupdir=.,~/.backup
+
 "Enable syntax highlighting."
 set t_Co=256
 syntax on
@@ -130,7 +133,7 @@ augroup vimrc_filetype
   autocmd FileType tex\|plaintex call s:MyTeXSettings()
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
-  autocmd FileType mail call s:EmailSpelling()
+  autocmd FileType mail call s:EmailSettings()
   autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
   autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
   autocmd FileType vimwiki\|mail\|rst call s:GrammarCheck()
@@ -168,8 +171,16 @@ function! s:MyTeXSettings()
     nnoremap #4 :! bibtex -terse main.aux && pdflatex --interaction=batchmode main.tex > /dev/null && pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
 endfunction
 
-function! s:EmailSpelling()
+function! s:EmailSettings()
     nnoremap #1 :w \|! aspell check -e %<CR>
+
+    " :h swapfile `This option can be reset when a swapfile is not wanted
+    "   for a specific buffer.  For example, with confidential information
+    "   that even root must not be able to access.
+    "   Careful: All text will be in memory:
+	"       - Don't use this for big files.
+    "       - Recovery will be impossible!'
+    set noswapfile
 endfunction
 
 function! s:GrammarCheck()
