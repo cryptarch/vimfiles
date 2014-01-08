@@ -7,8 +7,8 @@ set nocompatible
 set modeline
 set modelines=5
 
-" h: backupdir `If you want to hide your backup files on Unix ...'
-set backupdir=.,~/.backup
+" Hide backup files.
+set backupdir=~/.backup
 
 "Enable syntax highlighting."
 set t_Co=256
@@ -181,11 +181,9 @@ function! s:EmailSettings()
 	"       - Don't use this for big files.
     "       - Recovery will be impossible!'
     set noswapfile
-    
-    " :h nowritebackup
-    "   Switching this option off means that when Vim fails to write
-    "   your buffer correctly and then, for whatever reason, Vim exits,
-    "   you lose both the original file and what you were writing.
+
+    " h: backup
+    set nobackup
     set nowritebackup
 endfunction
 
