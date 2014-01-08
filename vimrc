@@ -7,9 +7,6 @@ set nocompatible
 set modeline
 set modelines=5
 
-" Hide backup files.
-set backupdir=~/.backup
-
 "Enable syntax highlighting."
 set t_Co=256
 syntax on
