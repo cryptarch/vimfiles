@@ -181,6 +181,12 @@ function! s:EmailSettings()
 	"       - Don't use this for big files.
     "       - Recovery will be impossible!'
     set noswapfile
+    
+    " :h nowritebackup
+    "   Switching this option off means that when Vim fails to write
+    "   your buffer correctly and then, for whatever reason, Vim exits,
+    "   you lose both the original file and what you were writing.
+    set nowritebackup
 endfunction
 
 function! s:GrammarCheck()
