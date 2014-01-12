@@ -232,5 +232,8 @@ let rss.ext = '.txt'
 let mundane = {}
 let mundane.path = '~/extramuros/'
 let mundane.diary_rel_path = ''
-let g:vimwiki_list = [phd, bib, rss, mundane]
+let blog = {}
+let blog.path = '~/blog/'
+let blog.diary_rel_path = ''
+let g:vimwiki_list = [phd, bib, rss, mundane, blog]
 
