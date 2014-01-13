@@ -110,9 +110,9 @@ noremap % v%
 cnoremap vh vert botright help 
 
 " Commands to insert useful information.
-inoremap <C-N> <esc>"%pi
+inoremap <C-N> <esc>"%pa
 nnoremap <C-N> <esc>"%p
-inoremap <C-X> <esc>"+pi
+inoremap <C-X> <esc>"+pa
 nnoremap <C-X> "+p
 inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
 " TODO: Make the following fail gracefully if ~/cb doesn't exist.
