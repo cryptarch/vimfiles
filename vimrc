@@ -144,7 +144,10 @@ map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
 
 function! s:MyCSettings()
   " Insert comments markers
-  map - :s/^/\/\//<CR>:nohlsearch<CR>
+    map - :s/^/\/\//<CR>:nohlsearch<CR>
+    if filereadable("Makefile")
+        nnoremap #3 :w \|! make<CR>
+    endif
 endfunction
 
 function! s:MyVimSettings()
