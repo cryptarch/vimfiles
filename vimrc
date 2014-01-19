@@ -84,6 +84,9 @@ vnoremap <space> zf
 " Avoid annoying E173 error when opening multiple files.
 cnoremap q qa
 
+" Exit with one button press.
+nnoremap q :q!<CR>
+
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
