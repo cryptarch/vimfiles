@@ -119,9 +119,6 @@ nnoremap <C-N> <esc>"%p
 inoremap <C-X> <esc>"+pa
 nnoremap <C-X> "+p
 inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
-" TODO: Make the following fail gracefully if ~/cb doesn't exist.
-inoremap <C-P> <esc>:r ~/cb<CR>i
-nnoremap <C-P> :r ~/cb<CR>
 
 " Deal with specific file types.
 filetype on
@@ -178,7 +175,12 @@ endfunction
 function! s:EmailSettings()
     nnoremap #1 :w \|! aspell check -e %<CR>
 
-    " :h swapfile `This option can be reset when a swapfile is not wanted
+    " TODO: Make the following fail gracefully if ~/cb doesn't exist.
+    inoremap <C-P> <esc>:r ~/cb<CR>i
+    nnoremap <C-P> :r ~/cb<CR>
+
+    " :h swapfile
+    "  `This option can be reset when a swapfile is not wanted
     "   for a specific buffer.  For example, with confidential information
     "   that even root must not be able to access.
     "   Careful: All text will be in memory:
