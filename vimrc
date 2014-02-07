@@ -76,6 +76,9 @@ set foldmethod=indent
 """"""""""""
 """ Mappings
 
+" Break line at cursor.
+nnoremap K i<CR><esc>
+
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
 nnoremap f zA
