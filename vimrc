@@ -139,9 +139,9 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
+  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst\|markdown call s:FormatText()
   autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
-  autocmd FileType vimwiki\|mail\|rst call s:GrammarCheck()
+  autocmd FileType vimwiki\|mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType vimwiki call s:WikiCompat()
   autocmd FileType vimwiki call s:WikiDates()
 augroup end
