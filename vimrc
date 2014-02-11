@@ -146,7 +146,7 @@ function! s:MyCSettings()
   " Insert comments markers
     map - :s/^/\/\//<CR>:nohlsearch<CR>
     if filereadable("Makefile")
-        nnoremap #3 :w \|! make<CR>
+        nnoremap #3 :w \|! make -j4<CR>
     endif
 endfunction
 
