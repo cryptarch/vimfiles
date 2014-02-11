@@ -37,6 +37,7 @@ let g:vimsyn_noerror= 1
 "Transparent background"
 hi Normal ctermbg=NONE
 hi Visual term=reverse cterm=reverse
+set fillchars=stl:-,stlnc:-,vert:\|
 
 "Permit use of the mouse."
 set mouse=a
@@ -99,10 +100,13 @@ nnoremap <S-Tab> :bprevious<CR>
 nnoremap <C-W> :Kwbd<CR>
 
 " Navigate b/w panes.
-nmap <silent> <C-J> :wincmd j<CR>
-nmap <silent> <C-K> :wincmd k<CR>
-nmap <silent> <C-H> :wincmd h<CR>
-nmap <silent> <C-L> :wincmd l<CR>
+nnoremap <silent> <C-Right> :vertical botright split<CR>
+nnoremap <silent> <C-Left> :vertical topleft split<CR>
+nnoremap <silent> <S-H> :hide<CR>
+nnoremap <silent> <C-J> :wincmd j<CR>
+nnoremap <silent> <C-K> :wincmd k<CR>
+nnoremap <silent> <C-H> :wincmd h<CR>
+nnoremap <silent> <C-L> :wincmd l<CR>
 
 " General navigation.
 nnoremap z bbe
