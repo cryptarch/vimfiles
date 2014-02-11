@@ -25,7 +25,10 @@ hi Ignore                ctermfg=234
 hi Error    ctermbg=88 ctermfg=White
 hi Todo    ctermbg=88 ctermfg=Black
 hi Folded   ctermbg=52 ctermfg=Black
-hi StatusLine cterm=NONE ctermbg=52 ctermfg=Black
+hi VertSplit cterm=NONE ctermbg=Black ctermfg=52 
+hi StatusLine cterm=NONE ctermbg=Black ctermfg=Red
+hi StatusLineNC cterm=NONE ctermbg=Black ctermfg=52
+hi NonText     ctermfg=52
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
