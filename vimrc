@@ -208,6 +208,7 @@ endfunction
 
 function! s:FormatText()
     set tw=72
+    vnoremap f :!fmt<CR>
     vnoremap <C-f> {gq}
     nnoremap <C-f> vgq
     inoremap <C-f> <esc>vgqi
