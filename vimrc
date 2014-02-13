@@ -88,6 +88,9 @@ vnoremap <space> zf
 " Avoid annoying E173 error when opening multiple files.
 cnoremap q qa
 
+" Exit with one button press.
+nnoremap q :q!<CR>
+
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -123,9 +126,6 @@ nnoremap <C-N> <esc>"%p
 inoremap <C-X> <esc>"+pa
 nnoremap <C-X> "+p
 inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
-" TODO: Make the following fail gracefully if ~/cb doesn't exist.
-inoremap <C-P> <esc>:r ~/cb<CR>i
-nnoremap <C-P> :r ~/cb<CR>
 
 " Deal with specific file types.
 filetype on
@@ -139,9 +139,9 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst call s:FormatText()
+  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst\|markdown call s:FormatText()
   autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
-  autocmd FileType vimwiki\|mail\|rst call s:GrammarCheck()
+  autocmd FileType vimwiki\|mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType vimwiki call s:WikiCompat()
   autocmd FileType vimwiki call s:WikiDates()
 augroup end
@@ -153,7 +153,7 @@ function! s:MyCSettings()
   " Insert comments markers
     map - :s/^/\/\//<CR>:nohlsearch<CR>
     if filereadable("Makefile")
-        nnoremap #3 :w \|! make<CR>
+        nnoremap #3 :w \|! make -j4<CR>
     endif
 endfunction
 
@@ -182,7 +182,12 @@ endfunction
 function! s:EmailSettings()
     nnoremap #1 :w \|! aspell check -e %<CR>
 
-    " :h swapfile `This option can be reset when a swapfile is not wanted
+    " TODO: Make the following fail gracefully if ~/cb doesn't exist.
+    inoremap <C-P> <esc>:r ~/cb<CR>i
+    nnoremap <C-P> :r ~/cb<CR>
+
+    " :h swapfile
+    "  `This option can be reset when a swapfile is not wanted
     "   for a specific buffer.  For example, with confidential information
     "   that even root must not be able to access.
     "   Careful: All text will be in memory:
