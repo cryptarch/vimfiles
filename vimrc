@@ -31,8 +31,12 @@ au BufRead,BufNewFile *.md set filetype=markdown
 
 " This adds syntax highlighting to `set -o vi' mode in bash:
 au BufRead,BufNewFile bash-fc-* set filetype=sh
+
 " This is a workaround for a won't-fix bug in bash syntax highlighting.
 let g:vimsyn_noerror= 1 
+
+" Set the leader.
+let mapleader=";"
 
 "Transparent background"
 hi Normal ctermbg=NONE
