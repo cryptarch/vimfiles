@@ -28,6 +28,7 @@ color orclord
 " Custom filetypes.
 au BufRead,BufNewFile *.muttrc set filetype=muttrc
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.bib set filetype=bib
 
 " This adds syntax highlighting to `set -o vi' mode in bash:
 au BufRead,BufNewFile bash-fc-* set filetype=sh
