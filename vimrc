@@ -149,6 +149,7 @@ augroup vimrc_filetype
   autocmd FileType vimwiki\|mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType vimwiki call s:WikiCompat()
   autocmd FileType vimwiki call s:WikiDates()
+  autocmd FileType markdown call s:MarkdownSettings()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
@@ -239,6 +240,10 @@ endfunction
 
 function! s:WikiDates()
     vnoremap <C-D> xa[[diary:<esc>pa\|<esc>pa]]<esc>
+endfunction
+
+function! s:MarkdownSettings()
+    noremap #3 :w \|! markdown % > %.html<CR><CR>
 endfunction
 
 let phd = {}
