@@ -212,6 +212,7 @@ endfunction
 
 function! s:MyPySettings()
     set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    nnoremap <F3> :w \|! %<CR>
 endfunction
 
 function! s:MyHaskellSettings()
