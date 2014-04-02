@@ -36,10 +36,14 @@ au BufRead,BufNewFile bash-fc-* set filetype=sh
 " Check for django files. Default vim checker seems prone to false negatives.
 au BufRead,BufNewFile *.html call s:DjangoHtml()
 func! s:DjangoHtml()
-    if getline(1) =~ '{%.*%}'
-        set filetype=htmldjango
-        return
-    endif
+    let n = 1
+    while n < 10 && n < line("$")
+        if getline(n) =~ '{%.*%}'
+            set filetype=htmldjango
+            return
+        endif
+        let n = n + 1
+    endwhile
 endfunc
 
 " This is a workaround for a won't-fix bug in bash syntax highlighting.
