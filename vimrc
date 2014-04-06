@@ -108,7 +108,10 @@ vnoremap <space> zf
 cnoremap q qa
 
 " Exit with one button press.
-nnoremap q :q!<CR>
+nnoremap q :qa!<CR>
+
+" Save with one button press.
+nnoremap s :w
 
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
