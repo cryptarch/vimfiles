@@ -111,7 +111,7 @@ cnoremap q qa
 nnoremap q :qa!<CR>
 
 " Save with one button press.
-nnoremap s :w
+nnoremap s :w<CR>
 
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
