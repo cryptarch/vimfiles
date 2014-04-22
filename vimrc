@@ -1,8 +1,3 @@
-" Nocompatible is required by vimwiki.
-" Vim-help advises that if this option is set, it should be set at the top
-" of the vimrc.
-set nocompatible
-
 " http://vim.wikia.com/wiki/Modeline_magic
 set modeline
 set modelines=5
@@ -81,8 +76,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-"Reduce the interference created by running shell commands."
-" Furthermore, reduce interference when creating/opening new links in vimwiki.
+"Reduce the interference created by running shell commands.
 " Ref h: press-enter, h: shortmess
 set shortmess=aoOtTW
 
@@ -161,11 +155,9 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType vimwiki\|tex\|note\|asciidoc\|rst\|markdown call s:FormatText()
-  autocmd FileType vimwiki\|mail\|rst call s:SmallTabs()
-  autocmd FileType vimwiki\|mail\|rst\|markdown call s:GrammarCheck()
-  autocmd FileType vimwiki call s:WikiCompat()
-  autocmd FileType vimwiki call s:WikiDates()
+  autocmd FileType tex\|note\|asciidoc\|rst\|markdown call s:FormatText()
+  autocmd FileType mail\|rst call s:SmallTabs()
+  autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
 augroup end
 
@@ -249,36 +241,7 @@ function! s:SmallTabs()
     set shiftwidth=2
 endfunction
 
-function! s:WikiCompat()
-    " Vimwiki is a bit obnoxious about overwriting useful mappings.
-    nunmap <buffer><Tab>
-    nunmap <buffer><S-Tab>
-    au BufRead,BufNewFile *.bib set filetype=bib
-endfunction
-
-function! s:WikiDates()
-    vnoremap <C-D> xa[[diary:<esc>pa\|<esc>pa]]<esc>
-endfunction
-
 function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
 endfunction
-
-let phd = {}
-let phd.path= '~/phdwiki/'
-let phd.diary_rel_path = ''
-let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex', 'C': 'c'}
-let bibfiles = {}
-let bibfiles.path = '~/phdwiki/bibtex/'
-let bibfiles.ext = '.bib'
-let rss = {}
-let rss.path = '~/phdwiki/rss/'
-let rss.ext = '.txt'
-let mundane = {}
-let mundane.path = '~/extramuros/'
-let mundane.diary_rel_path = ''
-let blog = {}
-let blog.path = '~/blog/'
-let blog.diary_rel_path = ''
-let g:vimwiki_list = [phd, bibfiles, rss, mundane, blog]
 
