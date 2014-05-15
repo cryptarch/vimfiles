@@ -149,6 +149,7 @@ augroup vimrc_filetype
   autocmd!
   autocmd FileType sh call s:MyShSettings()
   autocmd FileType c call s:MyCSettings()
+  autocmd FileType r call s:MyRSettings()
   autocmd FileType vim call s:MyVimSettings()
   autocmd FileType r\|perl\|sh call s:HashComments()
   autocmd FileType tex\|plaintex call s:MyTeXSettings()
@@ -244,4 +245,20 @@ endfunction
 function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
 endfunction
+
+
+function! s:MyRSettings()
+    " Lines added by the Vim-R-plugin command :RpluginConfig (2014-May-15 10:25):
+    filetype indent on
+
+    " Use Ctrl+Space to do omnicompletion:
+    if has("gui_running")
+        inoremap <C-Space> <C-x><C-o>
+    else
+        inoremap <Nul> <C-x><C-o>
+    endif
+endfunction
+    
+" Change the <LocalLeader> key:
+let maplocalleader = ";"
 
