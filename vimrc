@@ -257,6 +257,11 @@ function! s:MyRSettings()
     else
         inoremap <Nul> <C-x><C-o>
     endif
+
+    " This seems to be necessary to make sure comments remain inline with " text.
+    set cindent
+    set comments=:#
+    set cinkeys-=0# 
 endfunction
     
 " Change the <LocalLeader> key:
