@@ -268,7 +268,24 @@ endfunction
 function! s:MySweaveSettings()
     noremap #5 :w \|! R CMD Sweave %<CR><CR>
 endfunction
-    
+ 
+let phd = {}
+let phd.path= '~/phdwiki/'
+let phd.diary_rel_path = ''
+let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex', 'C': 'c'}
+let bibfiles = {}
+let bibfiles.path = '~/phdwiki/bibtex/'
+let bibfiles.ext = '.bib'
+let rss = {}
+let rss.path = '~/phdwiki/rss/'
+let rss.ext = '.txt'
+let mundane = {}
+let mundane.path = '~/extramuros/'
+let mundane.diary_rel_path = ''
+let blog = {}
+let blog.path = '~/blog/'
+let blog.diary_rel_path = ''
+let g:vimwiki_list = [phd, bibfiles, rss, mundane, blog]
 
 " Change the <LocalLeader> key:
 let maplocalleader = ";"
