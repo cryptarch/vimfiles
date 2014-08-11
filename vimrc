@@ -285,6 +285,7 @@ let mundane.diary_rel_path = ''
 let blog = {}
 let blog.path = '~/blog/'
 let blog.diary_rel_path = ''
+let blog.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex', 'C': 'c'}
 let g:vimwiki_list = [phd, bibfiles, rss, mundane, blog]
 
 " Change the <LocalLeader> key:
