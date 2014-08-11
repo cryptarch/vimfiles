@@ -148,7 +148,8 @@ augroup vimrc_filetype
   autocmd!
   autocmd FileType sh call s:MyShSettings()
   autocmd FileType c call s:MyCSettings()
-  autocmd FileType r call s:MyRSettings()
+  autocmd FileType r\|rnoweb call s:MyRSettings()
+  autocmd FileType rnoweb call s:MySweaveSettings()
   autocmd FileType vim call s:MyVimSettings()
   autocmd FileType r\|perl\|sh call s:HashComments()
   autocmd FileType tex\|plaintex call s:MyTeXSettings()
@@ -263,7 +264,12 @@ function! s:MyRSettings()
     set comments=:#
     set cinkeys-=0# 
 endfunction
+
+function! s:MySweaveSettings()
+    noremap #3 :w \|! R CMD Sweave %<CR><CR>
+endfunction
     
+
 " Change the <LocalLeader> key:
 let maplocalleader = ";"
 
