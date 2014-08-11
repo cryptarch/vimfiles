@@ -149,10 +149,10 @@ augroup vimrc_filetype
   autocmd FileType sh call s:MyShSettings()
   autocmd FileType c call s:MyCSettings()
   autocmd FileType r\|rnoweb call s:MyRSettings()
+  autocmd FileType r\|perl\|sh call s:HashComments()
+  autocmd FileType tex\|plaintex\|rnoweb call s:MyTeXSettings()
   autocmd FileType rnoweb call s:MySweaveSettings()
   autocmd FileType vim call s:MyVimSettings()
-  autocmd FileType r\|perl\|sh call s:HashComments()
-  autocmd FileType tex\|plaintex call s:MyTeXSettings()
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
@@ -266,7 +266,7 @@ function! s:MyRSettings()
 endfunction
 
 function! s:MySweaveSettings()
-    noremap #3 :w \|! R CMD Sweave %<CR><CR>
+    noremap #5 :w \|! R CMD Sweave %<CR><CR>
 endfunction
     
 
