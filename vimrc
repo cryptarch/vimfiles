@@ -283,7 +283,7 @@ let mundane = {}
 let mundane.path = '~/extramuros/'
 let mundane.diary_rel_path = ''
 let blog = {}
-let blog.path = '~/blog/'
+let blog.path = '~/src/blog/'
 let blog.diary_rel_path = ''
 let g:vimwiki_list = [phd, bibfiles, rss, mundane, blog]
 
