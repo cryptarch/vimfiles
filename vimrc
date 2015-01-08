@@ -90,6 +90,9 @@ set foldmethod=indent
 """"""""""""
 """ Mappings
 
+" Switch to titlecase. Ref :h simple-change
+nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
+
 " Break line at cursor.
 nnoremap K i<CR><esc>
 
