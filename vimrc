@@ -248,6 +248,7 @@ endfunction
 
 function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
+    map - :s/^/> /<CR>
 endfunction
 
 
