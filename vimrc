@@ -249,8 +249,9 @@ endfunction
 function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
     map - :s/^/> /<CR>
+    nnoremap mH o====<ESC>
+    nnoremap mh o----<ESC>
 endfunction
-
 
 function! s:MyRSettings()
     " Lines added by the Vim-R-plugin command :RpluginConfig (2014-May-15 10:25):
