@@ -90,6 +90,9 @@ set foldmethod=indent
 """"""""""""
 """ Mappings
 
+" Switch to titlecase. Ref :h simple-change
+nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
+
 " Break line at cursor.
 nnoremap K i<CR><esc>
 
@@ -245,6 +248,7 @@ endfunction
 
 function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
+    map - :s/^/> /<CR>
 endfunction
 
 
