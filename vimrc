@@ -98,7 +98,6 @@ nnoremap K i<CR><esc>
 
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
-nnoremap f zA
 vnoremap <space> zf
 
 " Avoid annoying E173 error when opening multiple files.
@@ -159,7 +158,7 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType note\|asciidoc\|rst\|markdown call s:FormatText()
+  autocmd FileType mail\|note\|asciidoc\|rst\|markdown\|text call s:FormatText()
   autocmd FileType mail\|rst call s:SmallTabs()
   autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
@@ -233,11 +232,9 @@ function! s:MyHaskellSettings()
 endfunction
 
 function! s:FormatText()
-    set tw=72
-    vnoremap f :!fmt<CR>
-    vnoremap <C-f> {gq}
-    nnoremap <C-f> vgq
-    inoremap <C-f> <esc>vgqi
+    set tw=80
+    vnoremap f {gq}
+    nnoremap f gqip
 endfunction
 
 function! s:SmallTabs()
@@ -250,7 +247,6 @@ function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
     map - :s/^/> /<CR>
 endfunction
-
 
 function! s:MyRSettings()
     " Lines added by the Vim-R-plugin command :RpluginConfig (2014-May-15 10:25):
@@ -279,10 +275,8 @@ let phd.diary_rel_path = ''
 let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex', 'C': 'c'}
 let bibfiles = {}
 let bibfiles.path = '~/phdwiki/bibtex/'
-let bibfiles.ext = '.bib'
 let rss = {}
 let rss.path = '~/phdwiki/rss/'
-let rss.ext = '.txt'
 let mundane = {}
 let mundane.path = '~/extramuros/'
 let mundane.diary_rel_path = ''
