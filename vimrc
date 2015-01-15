@@ -159,7 +159,7 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType note\|asciidoc\|rst\|markdown call s:FormatText()
+  autocmd FileType mail\|note\|asciidoc\|rst\|markdown call s:FormatText()
   autocmd FileType mail\|rst call s:SmallTabs()
   autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
@@ -233,7 +233,7 @@ function! s:MyHaskellSettings()
 endfunction
 
 function! s:FormatText()
-    set tw=72
+    set tw=80
     vnoremap f :!fmt<CR>
     vnoremap <C-f> {gq}
     nnoremap <C-f> vgq
