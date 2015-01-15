@@ -235,7 +235,6 @@ function! s:FormatText()
     set tw=80
     vnoremap f {gq}
     nnoremap f gqip
-    inoremap f <esc>gqipi
 endfunction
 
 function! s:SmallTabs()
