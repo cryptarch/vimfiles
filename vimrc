@@ -234,10 +234,9 @@ endfunction
 
 function! s:FormatText()
     set tw=80
-    vnoremap f :!fmt<CR>
     vnoremap <C-f> {gq}
-    nnoremap <C-f> vgq
-    inoremap <C-f> <esc>vgqi
+    nnoremap <C-f> gqip
+    inoremap <C-f> <esc>gqipi
 endfunction
 
 function! s:SmallTabs()
@@ -250,7 +249,6 @@ function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
     map - :s/^/> /<CR>
 endfunction
-
 
 function! s:MyRSettings()
     " Lines added by the Vim-R-plugin command :RpluginConfig (2014-May-15 10:25):
