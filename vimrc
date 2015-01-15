@@ -98,7 +98,6 @@ nnoremap K i<CR><esc>
 
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
-nnoremap f zA
 vnoremap <space> zf
 
 " Avoid annoying E173 error when opening multiple files.
@@ -159,7 +158,7 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType mail\|note\|asciidoc\|rst\|markdown call s:FormatText()
+  autocmd FileType mail\|note\|asciidoc\|rst\|markdown\|text call s:FormatText()
   autocmd FileType mail\|rst call s:SmallTabs()
   autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
@@ -234,9 +233,9 @@ endfunction
 
 function! s:FormatText()
     set tw=80
-    vnoremap <C-f> {gq}
-    nnoremap <C-f> gqip
-    inoremap <C-f> <esc>gqipi
+    vnoremap f {gq}
+    nnoremap f gqip
+    inoremap f <esc>gqipi
 endfunction
 
 function! s:SmallTabs()
