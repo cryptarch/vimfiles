@@ -162,6 +162,7 @@ augroup vimrc_filetype
   autocmd FileType mail\|rst call s:SmallTabs()
   autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
+  autocmd FileType dot call s:DotSettings()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
@@ -269,6 +270,10 @@ endfunction
 
 function! s:MySweaveSettings()
     noremap #5 :w \|! R CMD Sweave %<CR><CR>
+endfunction
+
+function! s:DotSettings()
+    noremap #3 :w \|! dot -Tpng -O %<CR><CR>
 endfunction
  
 let phd = {}
