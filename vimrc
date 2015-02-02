@@ -252,6 +252,8 @@ function! s:MarkdownSettings()
     map - :s/^/> /<CR>
     nnoremap mH o====<ESC>
     nnoremap mh o----<ESC>
+    nnoremap mp :s/^/### /g<CR>
+    vnoremap mp :s/^/### /g<CR>
 endfunction
 
 function! s:MyRSettings()
