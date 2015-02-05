@@ -150,6 +150,7 @@ augroup vimrc_filetype
   autocmd!
   autocmd FileType sh call s:MyShSettings()
   autocmd FileType c call s:MyCSettings()
+  autocmd FileType c\|dot call s:CComments()
   autocmd FileType r\|rnoweb call s:MyRSettings()
   autocmd FileType r\|perl\|sh call s:HashComments()
   autocmd FileType tex\|plaintex\|rnoweb call s:MyTeXSettings()
@@ -169,11 +170,13 @@ augroup end
 map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
 
 function! s:MyCSettings()
-  " Insert comments markers
-    map - :s/^/\/\//<CR>:nohlsearch<CR>
     if filereadable("Makefile")
         nnoremap #3 :w \|! make -j4<CR>
     endif
+endfunction
+
+function! s:CComments()
+    map - :s/^/\/\//<CR>:nohlsearch<CR>
 endfunction
 
 function! s:MyVimSettings()
@@ -249,6 +252,8 @@ function! s:MarkdownSettings()
     map - :s/^/> /<CR>
     nnoremap mH o====<ESC>
     nnoremap mh o----<ESC>
+    nnoremap mp :s/^/### /g<CR>
+    vnoremap mp :s/^/### /g<CR>
 endfunction
 
 function! s:MyRSettings()
