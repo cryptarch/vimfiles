@@ -173,7 +173,8 @@ augroup vimrc_filetype
 augroup end
 
 " Clear all comment markers (one rule for all languages)
-map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap = :s/^[[:punct:]]\+[[:space:]]\=//g<CR>:nohlsearch<CR>
 
 function! s:MyCSettings()
     if filereadable("Makefile")
