@@ -100,7 +100,7 @@ nnoremap K i<CR><esc>
 " From vimtips wiki:
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 nnoremap W O<Esc>j
-nnoremap w o<Esc>k
+nnoremap <C-W> o<Esc>k
 
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
