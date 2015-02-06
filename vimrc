@@ -96,6 +96,12 @@ nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 " Break line at cursor.
 nnoremap K i<CR><esc>
 
+" Add lines above or below current without entering insert mode.
+" From vimtips wiki:
+"   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
+nnoremap O O<Esc>j
+nnoremap o o<Esc>k
+
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
 vnoremap <space> zf
