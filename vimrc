@@ -99,8 +99,8 @@ nnoremap K i<CR><esc>
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
-nnoremap O O<Esc>j
-nnoremap o o<Esc>k
+nnoremap tO O<Esc>j
+nnoremap to o<Esc>k
 
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
@@ -173,7 +173,8 @@ augroup vimrc_filetype
 augroup end
 
 " Clear all comment markers (one rule for all languages)
-map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap = :s/^[[:punct:]]\+[[:space:]]\=//g<CR>:nohlsearch<CR>
 
 function! s:MyCSettings()
     if filereadable("Makefile")
