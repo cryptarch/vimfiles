@@ -90,12 +90,20 @@ set foldmethod=indent
 """"""""""""
 """ Mappings
 
+" Switch to titlecase. Ref :h simple-change
+nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
+
 " Break line at cursor.
 nnoremap K i<CR><esc>
 
+" Add lines above or below current without entering insert mode.
+" From vimtips wiki:
+"   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
+nnoremap tO O<Esc>j
+nnoremap to o<Esc>k
+
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
-nnoremap f zA
 vnoremap <space> zf
 
 " Avoid annoying E173 error when opening multiple files.
@@ -148,6 +156,7 @@ augroup vimrc_filetype
   autocmd!
   autocmd FileType sh call s:MyShSettings()
   autocmd FileType c call s:MyCSettings()
+  autocmd FileType c\|dot call s:CComments()
   autocmd FileType r\|rnoweb call s:MyRSettings()
   autocmd FileType r\|perl\|sh call s:HashComments()
   autocmd FileType tex\|plaintex\|rnoweb call s:MyTeXSettings()
@@ -156,21 +165,25 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType note\|asciidoc\|rst\|markdown call s:FormatText()
+  autocmd FileType mail\|note\|asciidoc\|rst\|markdown\|text call s:FormatText()
   autocmd FileType mail\|rst call s:SmallTabs()
   autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
+  autocmd FileType dot call s:DotSettings()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
-map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap = :s/^[[:punct:]]\+[[:space:]]\=//g<CR>:nohlsearch<CR>
 
 function! s:MyCSettings()
-  " Insert comments markers
-    map - :s/^/\/\//<CR>:nohlsearch<CR>
     if filereadable("Makefile")
         nnoremap #3 :w \|! make -j4<CR>
     endif
+endfunction
+
+function! s:CComments()
+    map - :s/^/\/\//<CR>:nohlsearch<CR>
 endfunction
 
 function! s:MyVimSettings()
@@ -230,11 +243,9 @@ function! s:MyHaskellSettings()
 endfunction
 
 function! s:FormatText()
-    set tw=72
-    vnoremap f :!fmt<CR>
-    vnoremap <C-f> {gq}
-    nnoremap <C-f> vgq
-    inoremap <C-f> <esc>vgqi
+    set tw=80
+    vnoremap f {gq}
+    nnoremap f gqip
 endfunction
 
 function! s:SmallTabs()
@@ -245,8 +256,12 @@ endfunction
 
 function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
+    map - :s/^/> /<CR>
+    nnoremap mH o====<ESC>
+    nnoremap mh o----<ESC>
+    nnoremap mp :s/^/### /g<CR>
+    vnoremap mp :s/^/### /g<CR>
 endfunction
-
 
 function! s:MyRSettings()
     " Lines added by the Vim-R-plugin command :RpluginConfig (2014-May-15 10:25):
@@ -268,6 +283,10 @@ endfunction
 function! s:MySweaveSettings()
     noremap #5 :w \|! R CMD Sweave %<CR><CR>
 endfunction
+
+function! s:DotSettings()
+    noremap #3 :w \|! dot -Tpng -O %<CR><CR>
+endfunction
  
 let phd = {}
 let phd.path= '~/phdwiki/'
@@ -275,10 +294,8 @@ let phd.diary_rel_path = ''
 let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex', 'C': 'c'}
 let bibfiles = {}
 let bibfiles.path = '~/phdwiki/bibtex/'
-let bibfiles.ext = '.bib'
 let rss = {}
 let rss.path = '~/phdwiki/rss/'
-let rss.ext = '.txt'
 let mundane = {}
 let mundane.path = '~/extramuros/'
 let mundane.diary_rel_path = ''
