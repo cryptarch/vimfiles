@@ -96,6 +96,12 @@ nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 " Break line at cursor.
 nnoremap K i<CR><esc>
 
+" Add lines above or below current without entering insert mode.
+" From vimtips wiki:
+"   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
+nnoremap tO O<Esc>j
+nnoremap to o<Esc>k
+
 " Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
 nnoremap <space> za
 vnoremap <space> zf
@@ -150,8 +156,9 @@ augroup vimrc_filetype
   autocmd!
   autocmd FileType sh call s:MyShSettings()
   autocmd FileType c call s:MyCSettings()
+  autocmd FileType c\|dot call s:CComments()
   autocmd FileType r\|rnoweb call s:MyRSettings()
-  autocmd FileType r\|perl\|sh call s:HashComments()
+  autocmd FileType r\|perl\|sh\|gitcommit call s:HashComments()
   autocmd FileType tex\|plaintex\|rnoweb call s:MyTeXSettings()
   autocmd FileType rnoweb call s:MySweaveSettings()
   autocmd FileType vim call s:MyVimSettings()
@@ -162,17 +169,21 @@ augroup vimrc_filetype
   autocmd FileType mail\|rst call s:SmallTabs()
   autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
+  autocmd FileType dot call s:DotSettings()
 augroup end
 
 " Clear all comment markers (one rule for all languages)
-map _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap _ :s/^\/\/\\|^--\\|^> \\|^[#"%!;]//<CR>:nohlsearch<CR>
+noremap = :s/^[[:punct:]]\+[[:space:]]\=//g<CR>:nohlsearch<CR>
 
 function! s:MyCSettings()
-  " Insert comments markers
-    map - :s/^/\/\//<CR>:nohlsearch<CR>
     if filereadable("Makefile")
         nnoremap #3 :w \|! make -j4<CR>
     endif
+endfunction
+
+function! s:CComments()
+    map - :s/^/\/\//<CR>:nohlsearch<CR>
 endfunction
 
 function! s:MyVimSettings()
@@ -246,6 +257,10 @@ endfunction
 function! s:MarkdownSettings()
     noremap #3 :w \|! markdown % > %.html<CR><CR>
     map - :s/^/> /<CR>
+    nnoremap mH o====<ESC>
+    nnoremap mh o----<ESC>
+    nnoremap mp :s/^/### /g<CR>
+    vnoremap mp :s/^/### /g<CR>
 endfunction
 
 function! s:MyRSettings()
@@ -267,6 +282,10 @@ endfunction
 
 function! s:MySweaveSettings()
     noremap #5 :w \|! R CMD Sweave %<CR><CR>
+endfunction
+
+function! s:DotSettings()
+    noremap #3 :w \|! dot -Tpng -O %<CR><CR>
 endfunction
  
 let phd = {}
