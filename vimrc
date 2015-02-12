@@ -158,7 +158,7 @@ augroup vimrc_filetype
   autocmd FileType c call s:MyCSettings()
   autocmd FileType c\|dot call s:CComments()
   autocmd FileType r\|rnoweb call s:MyRSettings()
-  autocmd FileType r\|perl\|sh call s:HashComments()
+  autocmd FileType r\|perl\|sh\|gitcommit call s:HashComments()
   autocmd FileType tex\|plaintex\|rnoweb call s:MyTeXSettings()
   autocmd FileType rnoweb call s:MySweaveSettings()
   autocmd FileType vim call s:MyVimSettings()
