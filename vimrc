@@ -266,9 +266,7 @@ function! s:MarkdownSettings()
     nnoremap mp :s/^/### /g<CR>
     vnoremap mp :s/^/### /g<CR>
     nnoremap <C-B> ciw**<Esc>P
-
-    " TODO: make the following work when selecting backwards as well as forwards.
-    vnoremap <C-B> xi**<Esc>Pgvl
+    vnoremap <C-B> xi* <Esc>vPa*<Esc>gv
 endfunction
 
 function! s:MyRSettings()
