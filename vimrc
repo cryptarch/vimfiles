@@ -96,6 +96,9 @@ nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 " Break line at cursor.
 nnoremap K i<CR><esc>
 
+" Remove blank lines in selection.
+vnoremap c :s/^$\n//g<CR>
+
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
