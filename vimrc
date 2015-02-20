@@ -265,6 +265,7 @@ function! s:MarkdownSettings()
     nnoremap mh o----<ESC>
     nnoremap mp :s/^/### /g<CR>
     vnoremap mp :s/^/### /g<CR>
+    nnoremap <C-B> ciw**<Esc>P
 endfunction
 
 function! s:MyRSettings()
