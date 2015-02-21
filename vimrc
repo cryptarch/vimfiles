@@ -96,6 +96,9 @@ nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 " Break line at cursor.
 nnoremap K i<CR><esc>
 
+" Remove blank lines in selection.
+vnoremap c :s/^$\n//g<CR>
+
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
@@ -237,6 +240,7 @@ endfunction
 function! s:MyPySettings()
     set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
     nnoremap <F3> :w \|! %<CR>
+    nnoremap <Enter> :! python %<CR>
 endfunction
 
 function! s:MyHaskellSettings()
@@ -261,6 +265,8 @@ function! s:MarkdownSettings()
     nnoremap mh o----<ESC>
     nnoremap mp :s/^/### /g<CR>
     vnoremap mp :s/^/### /g<CR>
+    nnoremap <C-B> ciw**<Esc>P
+    vnoremap <C-B> xi* <Esc>vPa*<Esc>gv
 endfunction
 
 function! s:MyRSettings()
