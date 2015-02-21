@@ -69,12 +69,12 @@ set ofu=syntaxcomplete#Complete
 
 "Set indentation behaviour."
 set autoindent
-set smartindent
 set expandtab
 set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+filetype indent plugin on
 
 "Reduce the interference created by running shell commands.
 " Ref h: press-enter, h: shortmess
