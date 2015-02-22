@@ -1,8 +1,0 @@
-Set up symbolic links like so:
-ln -svf $PWD/vimrc ~/.vimrc
-find colors ftdetect plugin syntax -type f -exec ln -svf $PWD/{} ~/.vim/{} \;
-
-The "bclose" plugin for simplifying buffer management care of
-http://vim.wikia.com/wiki/Deleting_a_buffer_without_closing_the_window
-
-Orclord colour scheme originally based on the classic Elflord.
