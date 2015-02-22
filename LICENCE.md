@@ -6,6 +6,9 @@ The `orclord` colour scheme was originally a darkened version of `elflord` (funn
 Since `elflord` is licensed under the Vim licence, you should also consider `orclord` under the Vim licence.
 Refer to LICENCE.VIM for more information.
 
+The `markdown` syntax file is copyright [Ben Williams <benw@plasticboy.com>](http://plasticboy.com/markdown-vim-mode/)
+and under the MIT licence (see LICENCE.MIT for details).
+
 Lots of other tips came from many forgotten places on the internet.
 I think I'm using them under "fair use" since it's just a line or two at a time,
 but if you think I should be attributing you or I'm using an inconsistent licence then let me know.

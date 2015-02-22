@@ -6,3 +6,5 @@ you could do something like the following:
     $ find -mindepth 1 -type d ! -regex ".*\.git.*" -exec mkdir -pv ~/.vim/{} \;
     $ find -mindepth 2 -type f ! -regex ".*\.git.*" -exec ln -sv $PWD/{} ~/.vim/{} \;
 
+
+See `LICENCE.md` for overview of licences and copyright information (as best I understand/recall).
