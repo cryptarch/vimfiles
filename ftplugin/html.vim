@@ -3,7 +3,7 @@ let n = 1
 while n < 10 && n < line("$")
     if getline(n) =~ '{%.*%}'
         set filetype=htmldjango
-        return
+        break
     endif
     let n = n + 1
 endwhile
