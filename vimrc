@@ -69,12 +69,12 @@ set ofu=syntaxcomplete#Complete
 
 "Set indentation behaviour."
 set autoindent
-set smartindent
 set expandtab
 set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+filetype indent plugin on
 
 "Reduce the interference created by running shell commands.
 " Ref h: press-enter, h: shortmess
@@ -95,6 +95,9 @@ nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 
 " Break line at cursor.
 nnoremap K i<CR><esc>
+
+" Remove blank lines in selection.
+vnoremap c :s/^$\n//g<CR>
 
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
@@ -158,7 +161,7 @@ augroup vimrc_filetype
   autocmd FileType c call s:MyCSettings()
   autocmd FileType c\|dot call s:CComments()
   autocmd FileType r\|rnoweb call s:MyRSettings()
-  autocmd FileType r\|perl\|sh call s:HashComments()
+  autocmd FileType r\|perl\|sh\|gitcommit call s:HashComments()
   autocmd FileType tex\|plaintex\|rnoweb call s:MyTeXSettings()
   autocmd FileType rnoweb call s:MySweaveSettings()
   autocmd FileType vim call s:MyVimSettings()
@@ -237,6 +240,7 @@ endfunction
 function! s:MyPySettings()
     set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
     nnoremap <F3> :w \|! %<CR>
+    nnoremap <Enter> :! python %<CR>
 endfunction
 
 function! s:MyHaskellSettings()
@@ -261,6 +265,11 @@ function! s:MarkdownSettings()
     nnoremap mh o----<ESC>
     nnoremap mp :s/^/### /g<CR>
     vnoremap mp :s/^/### /g<CR>
+    nnoremap <C-B> ciw**<Esc>P
+    vnoremap <C-B> xi* <Esc>vPa*<Esc>gv
+
+    nnoremap { ?^[[:space:]]*$\n^[[:print:]]?e<CR>
+    nnoremap } /[[:print:]]$\n^[[:space:]]*$<CR>
 endfunction
 
 function! s:MyRSettings()
