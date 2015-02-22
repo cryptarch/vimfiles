@@ -269,7 +269,7 @@ function! s:MarkdownSettings()
     vnoremap <C-B> xi* <Esc>vPa*<Esc>gv
 
     nnoremap { ?^[[:space:]]*$\n^[[:print:]]?e<CR>
-    nnoremap } /^[[:space:]]*$\n^[[:print:]]/e<CR>
+    nnoremap } /[[:print:]]$\n^[[:space:]]*$<CR>
 endfunction
 
 function! s:MyRSettings()
