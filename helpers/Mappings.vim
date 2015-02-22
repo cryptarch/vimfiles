@@ -47,6 +47,7 @@ nnoremap <silent> <C-L> :wincmd l<CR>
 
 " General navigation.
 noremap z ?[[:print:]]\([[:space:]]\\|$\)<CR>
+noremap S /[[:punct:]]\+/e<CR>
 
 " Command to open help in a vertical split.
 cnoremap vh vert botright help 
