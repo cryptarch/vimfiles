@@ -138,7 +138,7 @@ nnoremap <silent> <C-H> :wincmd h<CR>
 nnoremap <silent> <C-L> :wincmd l<CR>
 
 " General navigation.
-nnoremap z bbe
+nnoremap z ?[[:print:]]\([[:space:]]\\|$\)<CR>
 
 "Jump between matching brackets, highlighting text in between."
 noremap % v%
