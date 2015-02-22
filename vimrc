@@ -2,23 +2,10 @@
 set modeline
 set modelines=5
 
-"Enable syntax highlighting."
+" Enable syntax highlighting.
 set t_Co=256
 syntax on
 color orclord
-
-" Uncomment the following block to convert gui colours to terminal colours.
-"if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
-"  \ filereadable(expand("/usr/share/vim/vimfiles/plugin/guicolorscheme.vim"))
-"" Use the guicolorscheme plugin to makes 256-color or 88-color
-"" terminal use GUI colors rather than cterm colors.
-"  runtime! plugin/guicolorscheme.vim
-"  GuiColorScheme dwarflord
-"else
-"" For 8-color 16-color terminals or for gvim, just use the
-"" regular :colorscheme command.
-" colorscheme default
-"endif
 
 " Custom filetypes.
 au BufRead,BufNewFile *.muttrc set filetype=muttrc
@@ -47,25 +34,29 @@ let g:vimsyn_noerror= 1
 
 " Set the leader.
 let mapleader=";"
+let maplocalleader = ";"
 
-"Transparent background"
+" Transparent background
 hi Normal ctermbg=NONE
 hi Visual term=reverse cterm=reverse
 set fillchars=stl:-,stlnc:-,vert:\|
 
-"Permit use of the mouse."
+" Permit use of the mouse.
 set mouse=a
 
-"Disable highlighting of search terms, as it becomes distracting."
+" Disable highlighting of search terms.
 set nohlsearch
 
-"... but do highlight while a search is in progress.
+" ... but do highlight while a search is in progress.
 set incsearch
 
-"Autocompletion fun.
+" Autocompletion fun.
 set infercase
-filetype plugin on
 set ofu=syntaxcomplete#Complete
+
+" Automatically deal with valid filetypes.
+filetype plugin on
+filetype indent on
 
 "Set indentation behaviour."
 set autoindent
@@ -74,7 +65,6 @@ set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-filetype indent plugin on
 
 "Reduce the interference created by running shell commands.
 " Ref h: press-enter, h: shortmess
@@ -105,11 +95,11 @@ vnoremap c :s/^$\n//g<CR>
 nnoremap tO O<Esc>j
 nnoremap to o<Esc>k
 
-" Accordion folds. NB: It isn't possible map <S-space> in most terminal environments.
+" Accordion folds. NB: It isn't possible to map <S-space> in most terminal environments.
 nnoremap <space> za
 vnoremap <space> zf
 
-" Avoid annoying E173 error when opening multiple files.
+" Avoid annoying E173 error when closing multiple files.
 cnoremap q qa
 
 " Exit with one button press.
@@ -168,7 +158,7 @@ augroup vimrc_filetype
   autocmd FileType python call s:MyPySettings()
   autocmd FileType haskell call s:MyHaskellSettings()
   autocmd FileType mail call s:EmailSettings()
-  autocmd FileType mail\|note\|asciidoc\|rst\|markdown\|text call s:FormatText()
+  autocmd FileType mail\|asciidoc\|rst\|markdown\|text call s:FormatText()
   autocmd FileType mail\|rst call s:SmallTabs()
   autocmd FileType mail\|rst\|markdown call s:GrammarCheck()
   autocmd FileType markdown call s:MarkdownSettings()
@@ -296,24 +286,3 @@ endfunction
 function! s:DotSettings()
     noremap #3 :w \|! dot -Tpng -O %<CR><CR>
 endfunction
- 
-let phd = {}
-let phd.path= '~/phdwiki/'
-let phd.diary_rel_path = ''
-let phd.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex', 'C': 'c'}
-let bibfiles = {}
-let bibfiles.path = '~/phdwiki/bibtex/'
-let rss = {}
-let rss.path = '~/phdwiki/rss/'
-let mundane = {}
-let mundane.path = '~/extramuros/'
-let mundane.diary_rel_path = ''
-let blog = {}
-let blog.path = '~/src/blog/'
-let blog.diary_rel_path = ''
-let blog.nested_syntaxes = {'vim': 'vim', 'sh': 'sh', 'plaintex': 'plaintex', 'tex': 'tex', 'C': 'c'}
-let g:vimwiki_list = [phd, bibfiles, rss, mundane, blog]
-
-" Change the <LocalLeader> key:
-let maplocalleader = ";"
-
