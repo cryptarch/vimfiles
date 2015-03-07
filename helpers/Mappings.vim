@@ -18,7 +18,7 @@ nnoremap <space> za
 vnoremap <space> zf
 
 " Avoid annoying E173 error when closing multiple files.
-cnoremap q qa
+cnoreabbrev q qa
 
 " Exit with one button press.
 nnoremap q :qa!<CR>
@@ -50,7 +50,7 @@ noremap z ?[[:print:]]\([[:space:]]\\|$\)<CR>
 noremap S /[[:punct:]]\+/e<CR>
 
 " Command to open help in a vertical split.
-cnoremap vh vert botright help 
+cnoreabbrev vh vert botright help 
 
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pa
