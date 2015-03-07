@@ -1,5 +1,6 @@
 runtime helpers/FormatText.vim
 runtime helpers/GrammarCheck.vim
+runtime helpers/SmallTabs.vim
 
 noremap #3 :w \|! markdown % > %.html<CR><CR>
 noremap - :s/^/> /<CR>
