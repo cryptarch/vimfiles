@@ -44,5 +44,8 @@ set pheader=%F%=%-%Page\ %N
 "Set up folding.
 set foldmethod=indent
 
+" Suppress W16 warnings.
+set autoread
+
 " Call other helper scripts.
 runtime helpers/Mappings.vim
