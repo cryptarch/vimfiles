@@ -18,7 +18,7 @@ nnoremap <space> za
 vnoremap <space> zf
 
 " Avoid annoying E173 error when closing multiple files.
-cnoremap q qa
+cnoreabbrev q qa
 
 " Exit with one button press.
 nnoremap q :qa!<CR>
@@ -50,7 +50,7 @@ noremap z ?[[:print:]]\([[:space:]]\\|$\)<CR>
 noremap S /[[:punct:]]\+/e<CR>
 
 " Command to open help in a vertical split.
-cnoremap vh vert botright help 
+cnoreabbrev vh vert botright help 
 
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pa
@@ -61,3 +61,6 @@ inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
 
 " Clear all comment markers (one rule for all languages)
 noremap _ :s/^[[:punct:]]\+[[:space:]]*//g<CR>:nohlsearch<CR>
+
+" Make current file executable.
+nnoremap <silent> <C-E> :!chmod +x %<CR><CR>
