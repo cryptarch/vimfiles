@@ -11,3 +11,4 @@ endif
 " This seems to be necessary to make sure comments remain inline with text.
 set cindent
 set cinkeys-=0# 
+noremap #3 :w \| ! /usr/bin/env Rscript %<CR>
