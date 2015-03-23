@@ -13,6 +13,11 @@ vnoremap c :s/^$\n//g<CR>
 nnoremap tO O<Esc>j
 nnoremap to o<Esc>k
 
+" Push current word left or right.
+" Ref: http://vim.wikia.com/wiki/Swapping_characters,_words_and_lines
+:nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
+:nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+
 " Accordion folds. NB: It isn't possible to map <S-space> in most terminal environments.
 nnoremap <space> za
 vnoremap <space> zf
