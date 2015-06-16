@@ -65,7 +65,7 @@ nnoremap <C-X> "+p
 inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
 
 " Clear all comment markers (one rule for all languages)
-noremap _ :s/^[[:punct:]]\+[[:space:]]*//g<CR>:nohlsearch<CR>
+noremap _ :s/^\([[:space:]]*\)\([[:punct:]]\+\)\([[:space:]]*\)/\1\3/g<CR>
 
 " Make current file executable.
 nnoremap <silent> <C-E> :!chmod +x %<CR><CR>
