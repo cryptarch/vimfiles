@@ -47,5 +47,8 @@ set foldmethod=indent
 " Suppress W16 warnings.
 set autoread
 
+" When navigating word-wise, don't treat underscores as internal characters.
+set iskeyword-=_
+
 " Call other helper scripts.
 runtime helpers/Mappings.vim
