@@ -69,3 +69,6 @@ noremap _ :s/^\([[:space:]]*\)\([[:punct:]]\+\)\([[:space:]]*\)/\1\3/g<CR>
 
 " Make current file executable.
 nnoremap <silent> <C-E> :!chmod +x %<CR><CR>
+
+" Insert lorem ipsum text inline. Assumes you have lorem-ipsum-generator in your path.
+nnoremap <S-L> :r ! lorem-ipsum-generator -s1<CR>

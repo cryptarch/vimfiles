@@ -41,6 +41,10 @@ set shortmess=aoOtTW
 "Set the print header. See help: statusline for explanation of symbols."
 set pheader=%F%=%-%Page\ %N
 
+"Statusline
+set statusline=%<0x%B\ %=\ %l,%c%V\ %P
+set laststatus=2
+
 "Set up folding.
 set foldmethod=indent
 
