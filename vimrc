@@ -17,6 +17,9 @@ set fillchars=stl:-,stlnc:-,vert:\|
 set nohlsearch
 set incsearch
 
+" All teh opsec
+set cryptmethod=blowfish2
+
 " Automatically deal with valid filetypes.
 filetype on
 filetype plugin on
