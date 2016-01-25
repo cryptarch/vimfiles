@@ -26,10 +26,11 @@ vnoremap <space> zf
 cnoreabbrev q qa
 
 " Exit with one button press.
-nnoremap q :qa!<CR>
+nnoremap <C-C> :qa!<CR>
 
-" Save with one button press.
-nnoremap s :w<CR>
+" Save. Note that <C-S> will freeze the terminal unless
+" stty -ixon is set in .bashrc
+nnoremap <C-S> :w<CR>
 
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
