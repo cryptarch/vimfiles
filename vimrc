@@ -18,7 +18,7 @@ set nohlsearch
 set incsearch
 
 " All teh opsec
-set cryptmethod=blowfish2
+set cryptmethod=blowfish
 
 " Automatically deal with valid filetypes.
 filetype on
