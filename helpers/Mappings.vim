@@ -63,6 +63,7 @@ nnoremap <C-N> <esc>"%p
 inoremap <C-X> <esc>"+pa
 nnoremap <C-X> "+p
 inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
+vnoremap <C-N> :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 
 " Clear all comment markers (one rule for all languages)
 noremap _ :s/^\([[:space:]]*\)\([[:punct:]]\+\)\([[:space:]]*\)/\1\3/g<CR>
