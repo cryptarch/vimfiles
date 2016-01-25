@@ -52,8 +52,8 @@ nnoremap <silent> <C-H> :wincmd h<CR>
 nnoremap <silent> <C-L> :wincmd l<CR>
 
 " General navigation.
-noremap z ?[[:print:]]\([[:space:]]\\|$\)<CR>
-noremap S /[[:punct:]]\+/e<CR>
+noremap , ?[[:print:]]\([[:space:]]\\|$\)<CR>
+noremap ) /[;\.\!\?][[:space:]]<CR>
 
 " Command to open help in a vertical split.
 cnoreabbrev vh vert botright help 
@@ -63,7 +63,7 @@ inoremap <C-N> <esc>"%pa
 nnoremap <C-N> <esc>"%p
 inoremap <C-X> <esc>"+pa
 nnoremap <C-X> "+p
-inoremap <C-D> <esc>:let @a=system("echo -n $(date -I)")<CR>a<C-R>a
+inoremap <C-D> <C-R>=strftime("%F")<CR>
 vnoremap <C-N> :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 
 " Clear all comment markers (one rule for all languages)
