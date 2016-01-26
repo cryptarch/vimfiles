@@ -1,2 +1,2 @@
 setlocal comments-=:// comments+=f://
-noremap <buffer> <localleader>- :s/^/\/\//<CR>:nohlsearch<CR>
+noremap <buffer> <localleader><localleader> :s/^/\/\//<CR>:nohlsearch<CR>

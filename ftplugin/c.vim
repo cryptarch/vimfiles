@@ -1,5 +1,5 @@
 runtime helpers/CComments.vim
 
 if filereadable("Makefile")
-    nnoremap #3 :w \|! make -j4<CR>
+    nnoremap <buffer> #3 :write \|! make -j4<CR>
 endif

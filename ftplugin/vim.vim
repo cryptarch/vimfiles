@@ -1,1 +1,1 @@
-noremap - :s/^/\"/<CR>:nohlsearch<CR>
+noremap <buffer> <localleader><localleader> :s/^/\"/<CR>:nohlsearch<CR>

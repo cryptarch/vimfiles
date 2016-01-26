@@ -6,6 +6,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Custom navigation.
+noremap <S-E> ge
+
 " Set the leader.
 let mapleader = ";"
 let maplocalleader = ","
@@ -23,8 +26,20 @@ vnoremap <leader>{ c{}<esc>P`[v`]
 vnoremap <leader>$ c$$<esc>P`[v`]
 vnoremap <leader>< c<<esc>a><esc>P`[v`]
 
+" When an operator is pending and we want to affect
+" everything between two delimiters, we should usually
+" do an inner movement.
+" (However, don't try to omap <|> since they are needed for indenting.)
+onoremap " i"
+onoremap ' i'
+onoremap * i*
+onoremap ( i(
+onoremap [ i[
+onoremap { i{
+onoremap $ i$
+
 " Break line at cursor.
-nnoremap ;k i<CR><esc>
+nnoremap <leader>k i<CR><esc>
 
 " Remove blank lines in selection.
 vnoremap c :s/^$\n//g<CR>
@@ -72,10 +87,6 @@ nnoremap <silent> <C-J> :wincmd j<CR>
 nnoremap <silent> <C-K> :wincmd k<CR>
 nnoremap <silent> <C-H> :wincmd h<CR>
 nnoremap <silent> <C-L> :wincmd l<CR>
-
-" General navigation.
-noremap , ?[[:print:]]\([[:space:]]\\|$\)<CR>
-noremap ) /[;\.\!\?][[:space:]]<CR>
 
 " Command to open help in a vertical split.
 cnoreabbrev vh vert botright help 
