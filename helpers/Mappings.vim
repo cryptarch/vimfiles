@@ -1,8 +1,16 @@
+" Unmap keys I don't use and find annoying.
+nnoremap q <NOP>
+nnoremap s <NOP>
+
+" Set the leader.
+let mapleader = ";"
+let maplocalleader = ";"
+
 " Switch to titlecase. Ref :h simple-change
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 
 " Break line at cursor.
-nnoremap K i<CR><esc>
+nnoremap ;k i<CR><esc>
 
 " Remove blank lines in selection.
 vnoremap c :s/^$\n//g<CR>
@@ -26,11 +34,11 @@ vnoremap <space> zf
 cnoreabbrev q qa
 
 " Exit with one button press.
-nnoremap <C-C> :qa!<CR>
+nnoremap <leader>q :qa!<CR>
 
-" Save. Note that <C-S> will freeze the terminal unless
+" Save. Note that choosing <C-S> will freeze the terminal unless
 " stty -ixon is set in .bashrc
-nnoremap <C-S> :w<CR>
+nnoremap <leader>s :w<CR>
 
 " Show syntax group under the cursor.
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -60,17 +68,18 @@ cnoreabbrev vh vert botright help
 
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pa
-nnoremap <C-N> <esc>"%p
-inoremap <C-X> <esc>"+pa
 nnoremap <C-X> "+p
+inoremap <C-X> <esc>"+pa
 inoremap <C-D> <C-R>=strftime("%F")<CR>
-vnoremap <C-N> :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
+
+vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
+nnoremap <leader>n :set number!<CR>
 
 " Clear all comment markers (one rule for all languages)
 noremap _ :s/^\([[:space:]]*\)\([[:punct:]]\+\)\([[:space:]]*\)/\1\3/g<CR>
 
 " Make current file executable.
-nnoremap <silent> <C-E> :!chmod +x %<CR><CR>
+nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
 
 " Insert lorem ipsum text inline. Assumes you have lorem-ipsum-generator in your path.
-nnoremap <S-L> :r ! lorem-ipsum-generator -s1<CR>
+nnoremap <localleader>l :r ! lorem-ipsum-generator -s1<CR>

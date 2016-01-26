@@ -25,10 +25,6 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Set the leader.
-let mapleader = ";"
-let maplocalleader = ";"
-
 "Set indentation behaviour."
 set autoindent
 set expandtab
