@@ -4,10 +4,20 @@ nnoremap s <NOP>
 
 " Set the leader.
 let mapleader = ";"
-let maplocalleader = ";"
+let maplocalleader = ","
 
 " Switch to titlecase. Ref :h simple-change
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
+
+" Put marks around things.
+vnoremap <leader>" c""<esc>P`[v`]
+vnoremap <leader>' c''<esc>P`[v`]
+vnoremap <leader>* c**<esc>P`[v`]
+vnoremap <leader>( c()<esc>P`[v`]
+vnoremap <leader>[ c[]<esc>P`[v`]
+vnoremap <leader>{ c{}<esc>P`[v`]
+vnoremap <leader>$ c$$<esc>P`[v`]
+vnoremap <leader>< c<<esc>a><esc>P`[v`]
 
 " Break line at cursor.
 nnoremap ;k i<CR><esc>
@@ -23,8 +33,8 @@ nnoremap to o<Esc>k
 
 " Push current word left or right.
 " Ref: http://vim.wikia.com/wiki/Swapping_characters,_words_and_lines
-:nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
-:nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+nnoremap <silent> gh "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
+nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
 
 " Accordion folds. NB: It isn't possible to map <S-space> in most terminal environments.
 nnoremap <space> za
