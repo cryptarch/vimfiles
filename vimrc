@@ -53,5 +53,9 @@ set autoread
 " When navigating word-wise, don't treat underscores as internal characters.
 set iskeyword-=_
 
+" Don't continue commenting on new lines.
+" Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+
 " Call other helper scripts.
 runtime helpers/Mappings.vim
