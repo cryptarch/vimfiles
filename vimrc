@@ -18,16 +18,12 @@ set nohlsearch
 set incsearch
 
 " All teh opsec
-set cryptmethod=blowfish2
+set cryptmethod=blowfish
 
 " Automatically deal with valid filetypes.
 filetype on
 filetype plugin on
 filetype indent on
-
-" Set the leader.
-let mapleader = ";"
-let maplocalleader = ";"
 
 "Set indentation behaviour."
 set autoindent
@@ -56,6 +52,13 @@ set autoread
 
 " When navigating word-wise, don't treat underscores as internal characters.
 set iskeyword-=_
+
+" Don't continue commenting on new lines.
+" Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
+augroup vimrc
+    autocmd!
+    autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+augroup END
 
 " Call other helper scripts.
 runtime helpers/Mappings.vim

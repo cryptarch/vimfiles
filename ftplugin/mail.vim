@@ -2,12 +2,10 @@ runtime helpers/FormatText.vim
 runtime helpers/SmallTabs.vim
 runtime helpers/GrammarCheck.vim
 
-nnoremap #1 :w \|! aspell check -e %<CR>
-
 " Interface with a clipboard fifo (~/cb) when using mutt over ssh.
 " TODO: Make the following fail gracefully if ~/cb doesn't exist.
-inoremap <C-P> <esc>:r ~/cb<CR>i
-nnoremap <C-P> :r ~/cb<CR>
+inoremap <buffer> <C-P> <esc>:read ~/cb<CR>i
+nnoremap <buffer> <C-P> :read ~/cb<CR>
 
 " :h swapfile
 "  `This option can be reset when a swapfile is not wanted

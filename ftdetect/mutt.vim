@@ -1,1 +1,4 @@
-au BufRead,BufNewFile *.muttrc set filetype=muttrc
+augroup mutt
+    autocmd!
+    autocmd BufRead,BufNewFile *.muttrc set filetype=muttrc
+augroup END
