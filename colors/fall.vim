@@ -69,3 +69,11 @@ hi Statement    gui=BOLD guifg=#80a030 guibg=NONE
 hi Todo         gui=BOLD,UNDERLINE guifg=#0080f0 guibg=NONE
 hi Type         gui=BOLD guifg=#b06c58 guibg=NONE
 hi Underlined   gui=UNDERLINE guifg=blue guibg=NONE
+
+" Spelling highlights.
+hi clear SpellBad
+hi clear SpellCap
+hi clear SpellRare
+hi clear SpellLocal
+hi SpellBad ctermfg=Red
+hi SpellCap cterm=underline
