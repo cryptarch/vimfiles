@@ -1,7 +1,6 @@
 runtime helpers/HashComments.vim
 
-map #5 :w \|! %
-map #6 :w \| so %
+nnoremap <buffer> #5 :write \|! %
 
 " Workaround for a won't-fix bug in bash syntax highlighting.
 let g:vimsyn_noerror = 1 

@@ -1,2 +1,5 @@
-au BufRead,BufNewFile *.bib set filetype=bib
-au BufRead,BufNewFile *.tex set filetype=tex
+augroup latex
+    autocmd!
+    autocmd BufRead,BufNewFile *.bib set filetype=bib
+    autocmd BufRead,BufNewFile *.tex set filetype=tex
+augroup END

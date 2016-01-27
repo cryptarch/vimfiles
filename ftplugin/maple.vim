@@ -1,1 +1,1 @@
-noremap #3 :w \| ! maple -u %<CR>
+nnoremap <buffer> #3 :write \| ! maple -u %<CR>

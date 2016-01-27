@@ -1,2 +1,2 @@
 runtime helpers/CComments.vim
-noremap #3 :w \|! dot -Tpng -O %<CR><CR>
+nnoremap <buffer> #3 :write \|! dot -Tpng -O %<CR><CR>

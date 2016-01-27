@@ -1,3 +1,2 @@
-noremap - :s/^/#/<CR>:nohlsearch<CR>
-noremap _ :s/^#//g<CR>:nohlsearch<CR>
-set comments=:#
+setlocal comments=:#
+noremap <buffer> <localleader><localleader> :s/^/#/<CR>:nohlsearch<CR>

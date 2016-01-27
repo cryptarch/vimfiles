@@ -1,3 +1,3 @@
-set tw=80
-vnoremap f {gq}
-nnoremap f gqip
+setlocal tw=80
+vnoremap <buffer> <localleader>f {gq}
+nnoremap <buffer> <localleader>f gqip

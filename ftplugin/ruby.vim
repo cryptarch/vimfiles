@@ -1,1 +1,1 @@
-noremap #3 :w \| ! ruby %<CR>
+nnoremap <buffer> #3 :write \| ! ruby %<CR>
