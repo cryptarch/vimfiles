@@ -19,4 +19,4 @@ nnoremap <buffer> { ?^[[:space:]]*$\n^[[:print:]]?e<CR>
 nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
 
 " Convert double-dash to emdash.
-iabbrev <buffer> -- ―
+iabbrev <buffer> --<space> ―<space>
