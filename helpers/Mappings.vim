@@ -29,14 +29,15 @@ vnoremap <leader>< c<<esc>a><esc>P`[v`]
 " When an operator is pending and we want to affect
 " everything between two delimiters, we should usually
 " do an inner movement.
-" (However, don't try to omap <|> since they are needed for indenting.)
+"
+" Don't try to omap <|> since they are needed for indenting.
+" Don't try to omap $ since it is needed to match the end of a line.
 onoremap " i"
 onoremap ' i'
 onoremap * i*
 onoremap ( i(
 onoremap [ i[
 onoremap { i{
-onoremap $ i$
 
 " Break line at cursor.
 nnoremap <leader>k i<CR><esc>
