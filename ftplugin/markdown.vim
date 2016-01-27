@@ -17,6 +17,3 @@ vnoremap <buffer> <C-B> xi* <Esc>vPa*<Esc>gv
 " Navigation
 nnoremap <buffer> { ?^[[:space:]]*$\n^[[:print:]]?e<CR>
 nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
-
-" Convert double-dash to emdash.
-iabbrev <buffer> -- ―
