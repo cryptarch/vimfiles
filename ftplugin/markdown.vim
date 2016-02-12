@@ -20,3 +20,6 @@ vnoremap <buffer> <C-B> xi* <Esc>vPa*<Esc>gv
 " Navigation
 nnoremap <buffer> { ?^[[:space:]]*$\n^[[:print:]]?e<CR>
 nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
+
+iabbrev <buffer> \--\ —
+
