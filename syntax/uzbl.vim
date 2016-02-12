@@ -85,7 +85,6 @@ syn region uzblEscape start=+\\@\[+ end=+\]\\@+
 
 " Match @/ shell command /@ regions
 syn region uzblUzblExec display start=+@/+ end=+/@+ end=+$+
-syn region uzblEscape start=+\\@/+ end=+/\\@+
 
 " Match @( shell command )@ regions
 syn region uzblShellExec display start=+@(+ end=+)@+ end=+$+
