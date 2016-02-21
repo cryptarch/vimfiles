@@ -19,3 +19,7 @@ set noswapfile
 " h: backup
 set nobackup
 set nowritebackup
+
+" Disable airline whitespace warning.
+" In mail, the sig actually requires one trailing whitespace.
+let g:airline#extensions#whitespace#enabled = 0
