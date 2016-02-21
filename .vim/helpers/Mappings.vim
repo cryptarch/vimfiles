@@ -13,6 +13,8 @@ noremap <S-E> ge
 let mapleader = ";"
 let maplocalleader = ","
 
+nnoremap <leader>g :!git cm "Add changes in %."<CR><CR>
+
 " Switch to titlecase. Ref :h simple-change
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 
