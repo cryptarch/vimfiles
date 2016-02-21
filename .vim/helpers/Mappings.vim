@@ -13,6 +13,13 @@ noremap <S-E> ge
 let mapleader = ";"
 let maplocalleader = ","
 
+" Git things
+nnoremap <leader>g :!git cm "Add changes in %."<CR><CR>
+
+" Change colours.
+nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
+nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
+
 " Switch to titlecase. Ref :h simple-change
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
 
@@ -78,7 +85,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 "Make buffers easier to work with. Kwbd is defined in plugin/bclose.vim"
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-nnoremap <C-W> :Kwbd<CR>
+nnoremap <C-W> :Bclose<CR>
 
 " Navigate b/w panes.
 nnoremap <silent> <C-Right> :vertical botright split<CR>

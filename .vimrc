@@ -64,6 +64,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline_theme='jet'
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_modified = 'Δ'
+let g:gitgutter_sign_modified_removed = '≃'
 set updatetime=500
 
 " Call other helper scripts.
