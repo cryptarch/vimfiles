@@ -2,6 +2,9 @@ runtime helpers/FormatText.vim
 runtime helpers/GrammarCheck.vim
 runtime helpers/SmallTabs.vim
 
+" Don't look up any keywords.
+noremap <buffer> K <NOP>
+
 nnoremap <buffer> #3 :write \|! markdown % > %.html<CR><CR>
 noremap <buffer> <localleader><localleader> :s/^/> /<CR>
 
@@ -17,3 +20,6 @@ vnoremap <buffer> <C-B> xi* <Esc>vPa*<Esc>gv
 " Navigation
 nnoremap <buffer> { ?^[[:space:]]*$\n^[[:print:]]?e<CR>
 nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
+
+iabbrev <buffer> \--\ —
+
