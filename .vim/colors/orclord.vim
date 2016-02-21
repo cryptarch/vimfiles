@@ -61,3 +61,8 @@ hi clear SpellLocal
 hi SpellBad ctermfg=Red
 hi SpellCap cterm=underline
 
+" GitGutter highlights.
+highlight GitGutterAdd ctermfg=30
+highlight GitGutterChange ctermfg=94
+highlight GitGutterDelete ctermfg=52
+highlight GitGutterChangeDelete ctermfg=166
