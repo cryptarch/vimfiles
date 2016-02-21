@@ -78,7 +78,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 "Make buffers easier to work with. Kwbd is defined in plugin/bclose.vim"
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-nnoremap <C-W> :Kwbd<CR>
+nnoremap <C-W> :Bclose<CR>
 
 " Navigate b/w panes.
 nnoremap <silent> <C-Right> :vertical botright split<CR>
