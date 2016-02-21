@@ -13,7 +13,12 @@ noremap <S-E> ge
 let mapleader = ";"
 let maplocalleader = ","
 
+" Git things
 nnoremap <leader>g :!git cm "Add changes in %."<CR><CR>
+
+" Change colours.
+nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
+nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
 
 " Switch to titlecase. Ref :h simple-change
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
