@@ -97,7 +97,7 @@ nnoremap <silent> <C-H> :wincmd h<CR>
 nnoremap <silent> <C-L> :wincmd l<CR>
 
 " Command to open help in a vertical split.
-cnoreabbrev vh vert botright help 
+cnoreabbrev vh vert botright help
 
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pa
@@ -113,3 +113,30 @@ noremap _ :s/^\([[:space:]]*\)\([[:punct:]]\+\)\([[:space:]]*\)/\1\3/g<CR>
 
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
+
+" Git commit current file.
+function! GitCommitCurrentFile()
+    let isgit = system("git " . "rev-parse " . "--is-inside-work-tree")
+    if v:shell_error != 128 " git rev-parse etc gives exit code 128 when current directory not under Git.
+        if &modified == 1
+            echo "Buffer has unsaved changes."
+        else
+            " git diff --name-only $filename returns the $filename if there
+            " have been changes, or no response otherwise.
+            "
+            " We need the 'echo -n' wrapper to remove trailing newline
+            " which interferes with vim string comparison.
+            let filenamecheck = system("echo -n $(" . "git " . "diff " . "--name-only " . bufname("%") . ")")
+            if filenamecheck == bufname("%")
+                let gitadd = system("git add " . bufname("%"))
+                let gitcommit = system("git commit " . "-m " . "\"Update " . bufname("%") . ".\"")
+                echo "Committed changes to " . bufname("%") . "."
+            else
+                echo "File " . bufname("%") . " not changed."
+            endif
+        endif
+    else
+        echo "Directory not under version control."
+    endif
+endfunction
+nnoremap <silent> <leader>a :call GitCommitCurrentFile()<CR>
