@@ -121,13 +121,8 @@ function! GitCommitCurrentFile()
         if &modified == 1
             echo "Buffer has unsaved changes."
         else
-            " git diff --name-only $filename returns the $filename if there
-            " have been changes, or no response otherwise.
-            "
-            " We need the 'echo -n' wrapper to remove trailing newline
-            " which interferes with vim string comparison.
-            let filenamecheck = system("echo -n $(" . "git " . "diff " . "--name-only " . bufname("%") . ")")
-            if filenamecheck == bufname("%")
+            let filenamecheck = system("git " . "diff " . "--quiet " . bufname("%"))
+            if v:shell_error == 1
                 let gitadd = system("git add " . bufname("%"))
                 let gitcommit = system("git commit " . "-m " . "\"Update " . bufname("%") . ".\"")
                 echo "Committed changes to " . bufname("%") . "."
