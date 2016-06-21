@@ -23,3 +23,6 @@ set nowritebackup
 " Disable airline whitespace warning.
 " In mail, the sig actually requires one trailing whitespace.
 let g:airline#extensions#whitespace#enabled = 0
+
+" Disable GitGutter for mail.
+call GitGutterDisable
