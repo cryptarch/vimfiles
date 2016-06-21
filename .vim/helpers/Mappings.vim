@@ -131,4 +131,3 @@ function! GitCommitCurrentFile()
         echo "Directory not under version control."
     endif
 endfunction
-nnoremap <silent> <leader>g :call GitCommitCurrentFile()<CR>

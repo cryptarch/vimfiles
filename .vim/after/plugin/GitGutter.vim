@@ -1,5 +1,13 @@
 if exists(':GitGutter')
-    nnoremap <leader>r :GitGutter<CR>
+    nnoremap <silent> <leader>gr :GitGutter<CR>
 else
-    nnoremap <leader>r :echo GitGutter not found<CR>
+    nnoremap <leader>gr :echo GitGutter not found<CR>
 endif
+
+function! GitGutterRefresh()
+    if exists(':GitGutter')
+        GitGutter
+    endif
+endfunction
+
+nnoremap <silent> <leader>gc :call GitCommitCurrentFile() \| :call GitGutterRefresh()<CR>
