@@ -13,9 +13,6 @@ noremap <S-E> ge
 let mapleader = ";"
 let maplocalleader = ","
 
-" Git things
-nnoremap <leader>g :!git cm "Add changes in %."<CR><CR>
-
 " Change colours.
 nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
@@ -97,7 +94,7 @@ nnoremap <silent> <C-H> :wincmd h<CR>
 nnoremap <silent> <C-L> :wincmd l<CR>
 
 " Command to open help in a vertical split.
-cnoreabbrev vh vert botright help 
+cnoreabbrev vh vert botright help
 
 " Commands to insert useful information.
 inoremap <C-N> <esc>"%pa
@@ -114,5 +111,23 @@ noremap _ :s/^\([[:space:]]*\)\([[:punct:]]\+\)\([[:space:]]*\)/\1\3/g<CR>
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
 
-" Insert lorem ipsum text inline. Assumes you have lorem-ipsum-generator in your path.
-nnoremap <localleader>l :r ! lorem-ipsum-generator -s1<CR>
+" Git commit current file.
+function! GitCommitCurrentFile()
+    let isgit = system("git " . "rev-parse " . "--is-inside-work-tree")
+    if v:shell_error != 128 " git rev-parse etc gives exit code 128 when current directory not under Git.
+        if &modified == 1
+            echo "Buffer has unsaved changes."
+        else
+            let filenamecheck = system("git " . "diff " . "--quiet " . bufname("%"))
+            if v:shell_error == 1
+                let gitadd = system("git add " . bufname("%"))
+                let gitcommit = system("git commit " . "-m " . "\"Update " . bufname("%") . ".\"")
+                echo "Committed changes to " . bufname("%") . "."
+            else
+                echo "File " . bufname("%") . " not changed."
+            endif
+        endif
+    else
+        echo "Directory not under version control."
+    endif
+endfunction

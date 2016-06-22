@@ -33,6 +33,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
+" Don't put two spaces between sentences!
+set nojoinspaces
+
 "Reduce the interference created by running shell commands.
 " Ref h: press-enter, h: shortmess
 set shortmess=aoOtTW
