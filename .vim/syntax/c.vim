@@ -237,7 +237,7 @@ syn match	cCommentStartError display "/\*"me=e-1 contained
 syn match       cOperator       '+[+=]\?\|-[-=>]\?\|==\?\|&[&=]\?\||[|=]\?\|![!=]\?'
 
 " '/' and '*' are singled out for special treatment because thank you C commenting syntax.
-syn match       cOperator       '[^/]\*[^/]=\?\|[^/\*]/[^\*/]=\?'
+syn match       cOperator       '\(/\)\@!\*\(/\)\@!=\?\|\([/\*]\)\@!/\([/\*]\)\@!=\?'
 
 syn keyword	cOperator	sizeof
 if exists("c_gnu")
