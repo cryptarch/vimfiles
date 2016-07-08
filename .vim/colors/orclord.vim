@@ -33,7 +33,7 @@ hi fgBoldBurn cterm=bold ctermfg=166
 hi fgWaste ctermfg=94
 hi fgStagnantPond ctermfg=30
 hi fgBoldStagnantPond cterm=bold ctermfg=30
-hi fgFecund ctermfg=161
+hi fgFecund ctermfg=125
 
 hi! link Comment fgBlood
 hi! link Constant fgBoldBurn
