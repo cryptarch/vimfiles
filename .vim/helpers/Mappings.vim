@@ -47,7 +47,7 @@ onoremap { i{
 nnoremap <leader>k i<CR><esc>
 
 " Remove blank lines in selection.
-vnoremap c :s/^$\n//g<CR>
+vnoremap <leader>c :s/^$\n//g<CR>
 
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
