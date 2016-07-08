@@ -1,6 +1,8 @@
 " Unmap keys I don't use and find annoying.
 nnoremap q <NOP>
 nnoremap s <NOP>
+nnoremap - <NOP>
+nnoremap _ <NOP>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
@@ -105,9 +107,6 @@ inoremap <C-D> <C-R>=strftime("%F")<CR>
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
-
-" Clear all comment markers (one rule for all languages)
-noremap _ :s/^\([[:space:]]*\)\([[:punct:]]\+\)\([[:space:]]*\)/\1\3/g<CR>
 
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
