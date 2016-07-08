@@ -204,6 +204,7 @@ endif
 syn match	cOctalError	display contained "0\o*[89]\d*"
 syn case match
 
+
 if exists("c_comment_strings")
   " A comment can contain cString, cCharacter and cNumber.
   " But a "*/" inside a cString in a cComment DOES end the comment!  So we
@@ -233,8 +234,12 @@ endif
 syn match	cCommentError	display "\*/"
 syn match	cCommentStartError display "/\*"me=e-1 contained
 
+syn match       cOperator       '+[+=]\?\|-[-=>]\?\|==\?\|&[&=]\?\||[|=]\?\|![!=]\?'
+
+" '/' and '*' are singled out for special treatment because thank you C commenting syntax.
+syn match       cOperator       '[^/]\*[^/]=\?\|[^/\*]/[^\*/]=\?'
+
 syn keyword	cOperator	sizeof
-syn match       cOperator       '+[+=]\?\|-[-=>]\?\|*[*=]\?\|/[/=]\?\|==\?\|&[&=]\?\||[|=]\?\|![!=]\?'
 if exists("c_gnu")
   syn keyword	cStatement	__asm__
   syn keyword	cOperator	typeof __real__ __imag__
