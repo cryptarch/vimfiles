@@ -13,3 +13,8 @@ nnoremap <buffer> #4
 nnoremap <buffer> <localleader>* :s/^/    \\item /<CR>
 vnoremap <buffer> <localleader>* :s/^/    \\item /g<CR>o\end{itemize}<ESC>`<O\begin{itemize}<ESC><l`>
 vnoremap <buffer> <localleader># :s/^/    \\item /g<CR>o\end{enumerate}<ESC>`<O\begin{enumerate}<ESC><l`>
+
+" Sectioning.
+nnoremap <buffer> <localleader>H :s/\(.*\)/\\chapter{\1}/<CR>
+nnoremap <buffer> <localleader>h :s/\(.*\)/\\section{\1}/<CR>
+nnoremap <buffer> <localleader>p :s/\(.*\)/\\subsection{\1}/<CR>
