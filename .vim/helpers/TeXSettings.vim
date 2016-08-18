@@ -7,7 +7,7 @@ nnoremap <buffer> #2
 nnoremap <buffer> #3
     \ :write \|! pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
 nnoremap <buffer> #4
-    \ :! bibtex -terse main.aux && pdflatex --interaction=batchmode main.tex > /dev/null && pdflatex --interaction=batchmode main.tex > /dev/null<CR><CR>
+    \ :! bibtex -terse main.aux<CR><CR>
 
 " Itemisation mappings.
 nnoremap <buffer> <localleader>* :s/^/    \\item /<CR>
