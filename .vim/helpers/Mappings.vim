@@ -23,8 +23,10 @@ let maplocalleader = ","
 nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
 
-" Switch to titlecase. Ref :h simple-change
+" Mappings for changing between upper and lower case.
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
+nnoremap ;u gUl
+nnoremap ;l gul
 
 " Put marks around things.
 vnoremap <leader>" c""<esc>P`[v`]
