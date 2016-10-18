@@ -11,6 +11,10 @@ noremap <Right> <NOP>
 " Custom navigation.
 noremap <S-E> ge
 
+" Increment/decrement numbers
+nnoremap ++ <C-A>
+nnoremap -- <C-X>
+
 " Set the leader.
 let mapleader = ";"
 let maplocalleader = ","
@@ -84,7 +88,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . ', '
 \ . synIDattr(synID(line("."),col("."),0),"name") . ', '
 \ . synIDattr(synIDtrans(synID(line("."),col("."),0)),"name") . ">"<CR>
 
-"Make buffers easier to work with. Kwbd is defined in plugin/bclose.vim"
+"Make buffers easier to work with. Bclose is defined in plugin/bclose.vim"
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <C-W> :Bclose<CR>
