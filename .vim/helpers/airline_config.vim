@@ -18,6 +18,8 @@ function! ShellErr()
     return b:statusline_shell_error
 endfunction
 
+" The following code came from
+" https://got-ravings.blogspot.com.au/2008/10/vim-pr0n-statusline-whitespace-flags.html
 function! StatuslineTrailingSpaceWarning()
     if !exists("b:statusline_trailing_space_warning")
         let b:trail_search = search('\s\+$', 'nw')
