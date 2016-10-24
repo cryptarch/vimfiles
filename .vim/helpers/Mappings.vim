@@ -11,6 +11,10 @@ noremap <Right> <NOP>
 " Custom navigation.
 noremap <S-E> ge
 
+" Increment/decrement numbers
+nnoremap ++ <C-A>
+nnoremap -- <C-X>
+
 " Set the leader.
 let mapleader = ";"
 let maplocalleader = ","
@@ -19,8 +23,10 @@ let maplocalleader = ","
 nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
 
-" Switch to titlecase. Ref :h simple-change
+" Mappings for changing between upper and lower case.
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
+nnoremap ;u gUl
+nnoremap ;l gul
 
 " Put marks around things.
 vnoremap <leader>" c""<esc>P`[v`]
@@ -82,7 +88,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . ', '
 \ . synIDattr(synID(line("."),col("."),0),"name") . ', '
 \ . synIDattr(synIDtrans(synID(line("."),col("."),0)),"name") . ">"<CR>
 
-"Make buffers easier to work with. Kwbd is defined in plugin/bclose.vim"
+"Make buffers easier to work with. Bclose is defined in plugin/bclose.vim"
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 nnoremap <C-W> :Bclose<CR>
