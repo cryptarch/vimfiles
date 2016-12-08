@@ -72,10 +72,7 @@ nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\
 nnoremap <space> za
 vnoremap <space> zf
 
-" Avoid annoying E173 error when closing multiple files.
-cnoreabbrev q qa
-
-" Exit with one button press.
+" Exit everything immediately.
 nnoremap <leader>q :qa!<CR>
 
 " Save. Note that choosing <C-S> will freeze the terminal unless
@@ -113,6 +110,10 @@ inoremap <C-D> <C-R>=strftime("%F")<CR>
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
+
+" cmdwin helpers
+nnoremap <leader>: :<C-F>
+nnoremap <leader>/ /<C-F>
 
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
