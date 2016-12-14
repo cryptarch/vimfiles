@@ -25,8 +25,8 @@ nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:Airlin
 
 " Mappings for changing between upper and lower case.
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
-nnoremap ;u gUl
-nnoremap ;l gul
+nnoremap <leader>u gUl
+nnoremap <leader>l gul
 
 " Put marks around things.
 vnoremap <leader>" c""<esc>P`[v`]
@@ -110,6 +110,10 @@ inoremap <C-D> <C-R>=strftime("%F")<CR>
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
+
+" Toggle search highlighting
+" Ref http://vim.wikia.com/wiki/VimTip14
+nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 
 " cmdwin helpers
 nnoremap <leader>: :<C-F>
