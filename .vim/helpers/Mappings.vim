@@ -25,8 +25,8 @@ nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:Airlin
 
 " Mappings for changing between upper and lower case.
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
-nnoremap ;u gUl
-nnoremap ;l gul
+nnoremap <leader>u gUl
+nnoremap <leader>l gul
 
 " Put marks around things.
 vnoremap <leader>" c""<esc>P`[v`]
@@ -72,10 +72,7 @@ nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\
 nnoremap <space> za
 vnoremap <space> zf
 
-" Avoid annoying E173 error when closing multiple files.
-cnoreabbrev q qa
-
-" Exit with one button press.
+" Exit everything immediately.
 nnoremap <leader>q :qa!<CR>
 
 " Save. Note that choosing <C-S> will freeze the terminal unless
@@ -113,6 +110,14 @@ inoremap <C-D> <C-R>=strftime("%F")<CR>
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
+
+" Toggle search highlighting
+" Ref http://vim.wikia.com/wiki/VimTip14
+nnoremap <leader>h :set hlsearch! hlsearch?<CR>
+
+" cmdwin helpers
+nnoremap <leader>: :<C-F>
+nnoremap <leader>/ /<C-F>
 
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>

@@ -20,6 +20,7 @@ hi fgSlime ctermfg=65
 hi fgBoldSlime cterm=bold ctermfg=65
 hi fgRust cterm=NONE ctermfg=52 guifg=#5f0000 ctermbg=Black
 hi bgRust ctermbg=52 ctermfg=Black
+hi bgSlime ctermbg=22 ctermfg=Black
 hi fgBlood ctermfg=88 guifg=#870000
 hi bgBlood ctermbg=88 ctermfg=Black
 hi bgInfection ctermbg=88 ctermfg=White
@@ -54,6 +55,7 @@ hi! link VertSplit fgRust
 hi! link StatusLine fgRed
 hi! link StatusLineNC fgRust
 hi! link NonText fgRust
+hi! link Search bgSlime
 
 hi! link cTerminator fgAftermath
 hi! link cIncluded fgBoldBruise
