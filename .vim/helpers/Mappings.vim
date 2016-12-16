@@ -57,6 +57,23 @@ nnoremap <leader>k i<CR><esc>
 " Remove blank lines in selection.
 vnoremap <leader>c :s/^$\n//g<CR>
 
+" Map to indicate very long or short lines.
+let b:short=16
+let b:long=90
+let b:show_long_short=0
+function! ToggleShowLongShortLines()
+    if b:show_long_short
+        let b:show_long_short=0
+        set colorcolumn=
+        match none
+    else
+        let b:show_long_short=1
+        execute ":set colorcolumn=" . b:short . "," . b:long
+        execute "match Search '.\\+\\%<" . b:short . "v[^.!?;]$\\|\\%>" . b:long . "v.\\+'"
+    endif
+endfunction
+nnoremap <leader>w :call ToggleShowLongShortLines()<CR>
+
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode

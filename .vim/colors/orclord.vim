@@ -35,6 +35,7 @@ hi fgWaste ctermfg=94
 hi fgStagnantPond ctermfg=30
 hi fgBoldStagnantPond cterm=bold ctermfg=30
 hi fgFecund ctermfg=125
+hi bgGloom ctermbg=234
 
 hi! link Comment fgBlood
 hi! link Constant fgBoldBurn
@@ -56,6 +57,7 @@ hi! link StatusLine fgRed
 hi! link StatusLineNC fgRust
 hi! link NonText fgRust
 hi! link Search bgSlime
+hi! link ColorColumn bgGloom
 
 hi! link cTerminator fgAftermath
 hi! link cIncluded fgBoldBruise
