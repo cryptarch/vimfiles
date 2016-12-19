@@ -65,11 +65,13 @@ function! ToggleShowLongShortLines()
     if b:show_long_short
         let b:show_long_short=0
         set colorcolumn=
+        set wrap
         match none
     else
         let b:show_long_short=1
         execute ":set colorcolumn=" . b:short . "," . b:long
         execute "match Search '.\\+\\%<" . b:short . "v[^.!?;]$\\|\\%>" . b:long . "v.\\+'"
+        set nowrap
     endif
 endfunction
 nnoremap <leader>w :call ToggleShowLongShortLines()<CR>
