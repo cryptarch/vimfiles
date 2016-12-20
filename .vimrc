@@ -10,6 +10,8 @@ set modelines=5
 set ff=unix
 set ffs=unix
 
+set sidescroll=1
+
 " Colours and syntax highlighting.
 set t_Co=256
 syntax on
