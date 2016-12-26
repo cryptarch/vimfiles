@@ -25,8 +25,8 @@ nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:Airlin
 
 " Mappings for changing between upper and lower case.
 nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
-nnoremap ;u gUl
-nnoremap ;l gul
+nnoremap <leader>u gUl
+nnoremap <leader>l gul
 
 " Put marks around things.
 vnoremap <leader>" c""<esc>P`[v`]
@@ -56,6 +56,25 @@ nnoremap <leader>k i<CR><esc>
 
 " Remove blank lines in selection.
 vnoremap <leader>c :s/^$\n//g<CR>
+
+" Map to indicate very long or short lines.
+let b:short=16
+let b:long=90
+let b:show_long_short=0
+function! ToggleShowLongShortLines()
+    if b:show_long_short
+        let b:show_long_short=0
+        set colorcolumn=
+        set wrap
+        match none
+    else
+        let b:show_long_short=1
+        execute ":set colorcolumn=" . b:short . "," . b:long
+        execute "match Search '.\\+\\%<" . b:short . "v[^.!?;]$\\|\\%>" . b:long . "v.\\+'"
+        set nowrap
+    endif
+endfunction
+nnoremap <leader>w :call ToggleShowLongShortLines()<CR>
 
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
@@ -110,6 +129,10 @@ inoremap <C-D> <C-R>=strftime("%F")<CR>
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
+
+" Toggle search highlighting
+" Ref http://vim.wikia.com/wiki/VimTip14
+nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 
 " cmdwin helpers
 nnoremap <leader>: :<C-F>
