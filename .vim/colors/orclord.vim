@@ -20,6 +20,7 @@ hi fgSlime ctermfg=65
 hi fgBoldSlime cterm=bold ctermfg=65
 hi fgRust cterm=NONE ctermfg=52 guifg=#5f0000 ctermbg=Black
 hi bgRust ctermbg=52 ctermfg=Black
+hi hellrunes ctermbg=233 ctermfg=52
 hi bgSlime ctermbg=22 ctermfg=Black
 hi fgBlood ctermfg=88 guifg=#870000
 hi bgBlood ctermbg=88 ctermfg=Black
@@ -51,7 +52,7 @@ hi! link Operator fgFecund
 hi! link Ignore fgStorm
 hi! link Error bgInfection
 hi! link Todo bgBlood
-hi! link Folded bgRust
+hi! link Folded hellrunes
 hi! link VertSplit fgRust
 hi! link StatusLine fgRed
 hi! link StatusLineNC fgRust
