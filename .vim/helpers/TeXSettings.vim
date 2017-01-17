@@ -18,3 +18,6 @@ vnoremap <buffer> <localleader># :s/^/    \\item /g<CR>o\end{enumerate}<ESC>`<O\
 nnoremap <buffer> <localleader>H :s/\(.*\)/\\chapter{\1}/<CR>
 nnoremap <buffer> <localleader>h :s/\(.*\)/\\section{\1}/<CR>
 nnoremap <buffer> <localleader>p :s/\(.*\)/\\subsection{\1}/<CR>
+
+" Markup mappings
+vnoremap <buffer> <C-I> mL<Esc>`>a}<Esc>`<i\emph{<Esc>`Llll:delm L<CR>
