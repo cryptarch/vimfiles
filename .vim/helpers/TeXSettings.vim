@@ -20,4 +20,5 @@ nnoremap <buffer> <localleader>h :s/\(.*\)/\\section{\1}/<CR>
 nnoremap <buffer> <localleader>p :s/\(.*\)/\\subsection{\1}/<CR>
 
 " Markup mappings
-vnoremap <buffer> <C-I> mL<Esc>`>a}<Esc>`<i\emph{<Esc>`Llll:delm L<CR>
+vnoremap <buffer> <localleader>i mL<Esc>`>a}<Esc>`<i\emph{<Esc>`L4l:delm L<CR>
+nnoremap <buffer> <localleader>i mLviw<Esc>`>a}<Esc>`<i\emph{<Esc>`L6l:delm L<CR>
