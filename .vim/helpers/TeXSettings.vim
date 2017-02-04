@@ -25,14 +25,15 @@ nnoremap <buffer> <localleader>i mLviw<Esc>`>a}<Esc>`<i\emph{<Esc>`L6l:delm L<CR
 
 " Unicode search and destroy.
 highlight nonascii ctermbg=yellow
-match nonascii "[^\x00-\x7F]"
+call matchadd('nonascii', '[^\x00-\x7F]')
 nnoremap <buffer> <localleader>- :%s/\%u2013/--/ge<CR> \| :%s/\%u2014/---/ge<CR>
 nnoremap <buffer> <localleader>' :%s/\%u2018/`/ge<CR>  \| :%s/\%u2019/'/ge<CR>
 nnoremap <buffer> <localleader>" :%s/\%u201c/``/ge<CR> \| :%s/\%u201d/''/ge<CR>
 
 " Version control condescension.
 highlight unbroken ctermbg=blue
-match unbroken "\([.!?;:'] \)\|---[^%]"
+call matchadd('unbroken', "[.!?;:'] ")
+call matchadd('unbroken', '---[^%]')
 nnoremap <buffer> <localleader>b :%s/\([.!?;:']\) /\1\r/ge<CR> \| :%s/---/---%\r/ge<CR>
 
 " Full stops used in abbreviations need special handling
