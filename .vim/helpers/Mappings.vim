@@ -19,6 +19,8 @@ nnoremap -- <C-X>
 let mapleader = ";"
 let maplocalleader = ","
 
+nnoremap <leader>. :&&<CR>
+
 " Change colours.
 nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
