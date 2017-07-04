@@ -1,4 +1,1 @@
-augroup sc
-    autocmd!
-    autocmd BufRead,BufNewFile .scrc set filetype=scconfig
-augroup END
+autocmd BufRead,BufNewFile .scrc set filetype=scconfig
