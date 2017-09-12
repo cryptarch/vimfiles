@@ -61,6 +61,9 @@ set autoread
 " When navigating word-wise, don't treat underscores as internal characters.
 set iskeyword-=_
 
+" Preserve undo history when switching buffers.
+set hidden
+
 " Don't continue commenting on new lines.
 " Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 augroup vimrc
