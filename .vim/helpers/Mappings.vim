@@ -56,6 +56,21 @@ onoremap { i{
 " Simplify working with clipboard
 if has("x11")
     nnoremap + :let @+=@0<CR>
+
+    nnoremap <silent> <C-c> :set opfunc=YankCB<CR>g@
+    vnoremap <silent> <C-c> :<C-U>call YankCB(visualmode(), 1)<CR>
+    function! YankCB(type, ...)
+        let sel_save = &selection
+        let &selection = "inclusive"
+        if a:0  " Invoked from Visual mode, use gv command.
+            silent exe "normal! gv\"+y"
+        elseif a:type == 'line'
+            silent exe "normal! '[V']\"+y"
+        else
+            silent exe "normal! `[v`]\"+y"
+        endif
+        let &selection = sel_save
+    endfunction
 endif
 
 " Break line at cursor.
