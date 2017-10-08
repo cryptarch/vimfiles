@@ -53,6 +53,11 @@ onoremap ( i(
 onoremap [ i[
 onoremap { i{
 
+" Simplify working with clipboard
+if has("x11")
+    nnoremap + :let @+=@0<CR>
+endif
+
 " Break line at cursor.
 nnoremap <leader>k i<CR><esc>
 
