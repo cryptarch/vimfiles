@@ -21,6 +21,9 @@ let maplocalleader = ","
 
 nnoremap <leader>. :&&<CR>
 
+" Map to run shell command
+nnoremap <leader>r p:.!bash<CR>
+
 " Change colours.
 nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
