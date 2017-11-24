@@ -23,3 +23,7 @@ nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
 
 iabbrev <buffer> \--\ —
 
+" Checklist mgmt
+if exists("g:loaded_abolish") " Require github:tpope/vim-abolish
+    nnoremap <buffer> tt :S/[{X, }]/[{ ,X}]/<CR>
+endif

@@ -64,6 +64,10 @@ set iskeyword-=_
 " Preserve undo history when switching buffers.
 set hidden
 
+" Permit per-project vimrc files but in that case run vim securely.
+set exrc
+set secure
+
 " Don't continue commenting on new lines.
 " Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 augroup vimrc
