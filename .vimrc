@@ -1,3 +1,6 @@
+packload
+silent! helptags ALL
+
 " Permit use of the mouse.
 set mouse=a
 
@@ -78,4 +81,5 @@ augroup END
 set updatetime=500
 runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
+runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim
