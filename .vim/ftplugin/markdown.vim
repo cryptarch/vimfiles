@@ -1,3 +1,4 @@
+scriptencoding utf-8
 runtime helpers/FormatText.vim
 runtime helpers/GrammarCheck.vim
 runtime helpers/SmallTabs.vim
@@ -24,6 +25,6 @@ nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
 iabbrev <buffer> \--\ —
 
 " Checklist mgmt
-if exists("g:loaded_abolish") " Require github:tpope/vim-abolish
+if exists('g:loaded_abolish') " Require github:tpope/vim-abolish
     nnoremap <buffer> tt :S/[{X, }]/[{ ,X}]/<CR>
 endif
