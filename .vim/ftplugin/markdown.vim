@@ -15,8 +15,8 @@ nnoremap <buffer> <localleader>h o----<ESC>
 nnoremap <buffer> <localleader>p :s/^/### /g<CR>
 
 " Format text
-nnoremap <buffer> <C-B> ciw**<Esc>P
-vnoremap <buffer> <C-B> xi* <Esc>vPa*<Esc>gv
+nnoremap <buffer> <localleader>b ciw**<Esc>P
+vnoremap <buffer> <localleader>b xi* <Esc>vPa*<Esc>gv
 
 " Navigation
 nnoremap <buffer> { ?^[[:space:]]*$\n^[[:print:]]?e<CR>
