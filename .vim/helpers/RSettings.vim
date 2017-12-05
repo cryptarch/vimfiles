@@ -2,7 +2,7 @@
 filetype indent on
 
 " Use Ctrl+Space to do omnicompletion:
-if has("gui_running")
+if has('gui_running')
     inoremap <C-Space> <C-x><C-o>
 else
     inoremap <Nul> <C-x><C-o>

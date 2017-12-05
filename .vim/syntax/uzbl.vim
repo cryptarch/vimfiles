@@ -20,9 +20,9 @@
 "   2. Accidentally matches keywords inside strings.
 "
 
-if version < 600
+if v:version < 600
     syntax clear
-elseif exists("b:current_syntax")
+elseif exists('b:current_syntax')
     finish
 endif
 
@@ -106,9 +106,9 @@ syn region uzblEscape start=+\\@\*+ end=+\*\\@+
 syn region uzblString display start=+'+ end=+'+ end=+$+ contains=uzblExpand,uzblEscape,uzblHexCol,uzblArgs,uzblInternalExpand,uzblEnvironVariable,uzblXMLEscape,uzblShellExec,uzblJSExec,uzblUzblExec
 syn region uzblString display start=+"+ end=+"+ end=+$+ contains=uzblExpand,uzblEscape,uzblHexCol,uzblArgs,uzblInternalExpand,uzblEnvironVariable,uzblXMLEscape,uzblShellExec,uzblJSExec,uzblUzblExec
 
-if version >= 508 || !exists("did_uzbl_syn_inits")
-    if version <= 508
-        let did_uzbl_syn_inits = 1
+if v:version >= 508 || !exists('did_uzbl_syn_inits')
+    if v:version <= 508
+        let g:did_uzbl_syn_inits = 1
         command -nargs=+ HiLink hi link <args>
     else
         command -nargs=+ HiLink hi def link <args>

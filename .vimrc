@@ -1,3 +1,6 @@
+packload
+silent! helptags ALL
+
 " Permit use of the mouse.
 set mouse=a
 
@@ -7,8 +10,8 @@ set mouse=a
 set modeline
 set modelines=5
 
-set ff=unix
-set ffs=unix
+set fileformat=unix
+set fileformats=unix
 
 set sidescroll=1
 
@@ -46,7 +49,7 @@ set nojoinspaces
 set shortmess=aoOtTW
 
 "Set the print header. See help: statusline for explanation of symbols."
-set pheader=%F%=%-%Page\ %N
+set printheader=%F%=%-%Page\ %N
 
 "Statusline
 set statusline=%<0x%B\ %=\ %l,%c%V\ %P
@@ -78,4 +81,5 @@ augroup END
 set updatetime=500
 runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
+runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim

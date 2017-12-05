@@ -16,8 +16,8 @@ nnoremap ++ <C-A>
 nnoremap -- <C-X>
 
 " Set the leader.
-let mapleader = ";"
-let maplocalleader = ","
+let g:mapleader = ';'
+let g:maplocalleader = ','
 
 nnoremap <leader>. :&&<CR>
 
@@ -57,22 +57,22 @@ onoremap [ i[
 onoremap { i{
 
 " Simplify working with clipboard
-if has("x11")
+if has('x11')
     nnoremap + :let @+=@0<CR>
 
     nnoremap <silent> <C-c> :set opfunc=YankCB<CR>g@
     vnoremap <silent> <C-c> :<C-U>call YankCB(visualmode(), 1)<CR>
     function! YankCB(type, ...)
-        let sel_save = &selection
-        let &selection = "inclusive"
+        let l:sel_save = &selection
+        let &selection = 'inclusive'
         if a:0  " Invoked from Visual mode, use gv command.
-            silent exe "normal! gv\"+y"
-        elseif a:type == 'line'
+            silent exe 'normal! gv\"+y'
+        elseif a:type ==# 'line'
             silent exe "normal! '[V']\"+y"
         else
-            silent exe "normal! `[v`]\"+y"
+            silent exe 'normal! `[v`]\"+y'
         endif
-        let &selection = sel_save
+        let &selection = l:sel_save
     endfunction
 endif
 
@@ -94,7 +94,7 @@ function! ToggleShowLongShortLines()
         match none
     else
         let b:show_long_short=1
-        execute ":set colorcolumn=" . b:short . "," . b:long
+        execute ':set colorcolumn=' . b:short . ',' . b:long
         execute "match Search '.\\+\\%<" . b:short . "v[^.!?;]$\\|\\%>" . b:long . "v.\\+'"
         set nowrap
     endif
@@ -168,21 +168,21 @@ nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
 
 " Git commit current file.
 function! GitCommitCurrentFile()
-    let isgit = system("git " . "rev-parse " . "--is-inside-work-tree")
+    let l:isgit = system('git ' . 'rev-parse ' . '--is-inside-work-tree')
     if v:shell_error != 128 " git rev-parse etc gives exit code 128 when current directory not under Git.
         if &modified == 1
-            echo "Buffer has unsaved changes."
+            echo 'Buffer has unsaved changes.'
         else
-            let filenamecheck = system("git " . "diff " . "--quiet " . bufname("%"))
+            let l:filenamecheck = system('git ' . 'diff ' . '--quiet ' . bufname('%'))
             if v:shell_error == 1
-                let gitadd = system("git add " . bufname("%"))
-                let gitcommit = system("git commit " . "-m " . "\"Update " . bufname("%") . ".\"")
-                echo "Committed changes to " . bufname("%") . "."
+                let l:gitadd = system('git add ' . bufname('%'))
+                let l:gitcommit = system('git commit ' . '-m ' . '\"Update ' . bufname('%') . '.\"')
+                echo 'Committed changes to ' . bufname('%') . '.'
             else
-                echo "File " . bufname("%") . " not changed."
+                echo 'File ' . bufname('%') . ' not changed.'
             endif
         endif
     else
-        echo "Directory not under version control."
+        echo 'Directory not under version control.'
     endif
 endfunction
