@@ -66,11 +66,11 @@ if has('x11')
         let l:sel_save = &selection
         let &selection = 'inclusive'
         if a:0  " Invoked from Visual mode, use gv command.
-            silent exe 'normal! gv\"+y'
+            silent exe "normal! gv\"+y"
         elseif a:type ==# 'line'
             silent exe "normal! '[V']\"+y"
         else
-            silent exe 'normal! `[v`]\"+y'
+            silent exe "normal! `[v`]\"+y"
         endif
         let &selection = l:sel_save
     endfunction
