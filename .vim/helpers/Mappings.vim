@@ -79,6 +79,10 @@ endif
 " Break line at cursor.
 nnoremap <leader>k i<CR><esc>
 
+" Paste below/above
+nnoremap <leader>p :put<CR>
+nnoremap <leader>P :put!<CR>
+
 " Remove blank lines in selection.
 vnoremap <leader>c :s/^$\n//g<CR>
 
