@@ -108,8 +108,8 @@ nnoremap <leader>w :call ToggleShowLongShortLines()<CR>
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
-nnoremap tO O<Esc>j
-nnoremap to o<Esc>k
+nnoremap <leader>O O<Esc>j
+nnoremap <leader>o o<Esc>k
 
 " Push current word left or right.
 " Ref: http://vim.wikia.com/wiki/Swapping_characters,_words_and_lines
