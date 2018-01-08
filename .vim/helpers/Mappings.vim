@@ -28,11 +28,6 @@ nnoremap <leader>r p:.!bash<CR>
 nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:AirlineRefresh<CR>
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
 
-" Mappings for changing between upper and lower case.
-nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
-nnoremap <leader>u gUl
-nnoremap <leader>l gul
-
 " Put marks around things.
 vnoremap <leader>" c""<esc>P`[v`]
 vnoremap <leader>' c''<esc>P`[v`]
@@ -42,39 +37,6 @@ vnoremap <leader>[ c[]<esc>P`[v`]
 vnoremap <leader>{ c{}<esc>P`[v`]
 vnoremap <leader>$ c$$<esc>P`[v`]
 vnoremap <leader>< c<<esc>a><esc>P`[v`]
-
-" When an operator is pending and we want to affect
-" everything between two delimiters, we should usually
-" do an inner movement.
-"
-" Don't try to omap <|> since they are needed for indenting.
-" Don't try to omap $ since it is needed to match the end of a line.
-onoremap " i"
-onoremap ' i'
-onoremap * i*
-onoremap ( i(
-onoremap [ i[
-onoremap { i{
-
-" Simplify working with clipboard
-if has('x11')
-    nnoremap + :let @+=@0<CR>
-
-    nnoremap <silent> <C-c> :set opfunc=YankCB<CR>g@
-    vnoremap <silent> <C-c> :<C-U>call YankCB(visualmode(), 1)<CR>
-    function! YankCB(type, ...)
-        let l:sel_save = &selection
-        let &selection = 'inclusive'
-        if a:0  " Invoked from Visual mode, use gv command.
-            silent exe "normal! gv\"+y"
-        elseif a:type ==# 'line'
-            silent exe "normal! '[V']\"+y"
-        else
-            silent exe "normal! `[v`]\"+y"
-        endif
-        let &selection = l:sel_save
-    endfunction
-endif
 
 " Break line at cursor.
 nnoremap <leader>k i<CR><esc>

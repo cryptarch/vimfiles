@@ -83,3 +83,4 @@ runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
 runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim
+runtime helpers/Operators.vim
