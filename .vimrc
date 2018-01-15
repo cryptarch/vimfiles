@@ -1,3 +1,6 @@
+packload
+silent! helptags ALL
+
 " Permit use of the mouse.
 set mouse=a
 
@@ -7,8 +10,8 @@ set mouse=a
 set modeline
 set modelines=5
 
-set ff=unix
-set ffs=unix
+set fileformat=unix
+set fileformats=unix
 
 set sidescroll=1
 
@@ -46,7 +49,7 @@ set nojoinspaces
 set shortmess=aoOtTW
 
 "Set the print header. See help: statusline for explanation of symbols."
-set pheader=%F%=%-%Page\ %N
+set printheader=%F%=%-%Page\ %N
 
 "Statusline
 set statusline=%<0x%B\ %=\ %l,%c%V\ %P
@@ -64,6 +67,10 @@ set iskeyword-=_
 " Preserve undo history when switching buffers.
 set hidden
 
+" Permit per-project vimrc files but in that case run vim securely.
+set exrc
+set secure
+
 " Don't continue commenting on new lines.
 " Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
 augroup vimrc
@@ -74,4 +81,6 @@ augroup END
 set updatetime=500
 runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
+runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim
+runtime helpers/Operators.vim

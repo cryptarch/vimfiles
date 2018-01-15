@@ -1,14 +1,15 @@
+scriptencoding utf-8
 " Vim syntax file
 " Language:         reStructuredText documentation format
 " Maintainer:       Nikolai Weibull <now@bitwi.se>
 " Latest Revision:  2013-06-03
 
-if exists("b:current_syntax")
+if exists('b:current_syntax')
   finish
 endif
 
-let s:cpo_save = &cpo
-set cpo&vim
+let s:cpo_save = &cpoptions
+set cpoptions&vim
 
 syn case ignore
 
@@ -94,18 +95,18 @@ function! s:DefineOneInlineMarkup(name, start, middle, end, char_left, char_righ
 endfunction
 
 function! s:DefineInlineMarkup(name, start, middle, end)
-  let middle = a:middle != "" ?
+  let l:middle = a:middle !=# '' ?
         \ (' skip=+\\\\\|\\' . a:middle . '+') :
-        \ ""
+        \ ''
 
-  call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, "'", "'")
-  call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '"', '"') 
-  call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '(', ')') 
-  call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '\[', '\]') 
-  call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '{', '}') 
-  call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '<', '>') 
+  call s:DefineOneInlineMarkup(a:name, a:start, l:middle, a:end, "'", "'")
+  call s:DefineOneInlineMarkup(a:name, a:start, l:middle, a:end, '"', '"')
+  call s:DefineOneInlineMarkup(a:name, a:start, l:middle, a:end, '(', ')')
+  call s:DefineOneInlineMarkup(a:name, a:start, l:middle, a:end, '\[', '\]')
+  call s:DefineOneInlineMarkup(a:name, a:start, l:middle, a:end, '{', '}')
+  call s:DefineOneInlineMarkup(a:name, a:start, l:middle, a:end, '<', '>')
 
-  call s:DefineOneInlineMarkup(a:name, a:start, middle, a:end, '\%(^\|\s\|[/:]\)', '')
+  call s:DefineOneInlineMarkup(a:name, a:start, l:middle, a:end, '\%(^\|\s\|[/:]\)', '')
 
   execute 'syn match rst' . a:name .
         \ ' +\%(^\|\s\|[''"([{</:]\)\zs' . a:start .
@@ -118,7 +119,7 @@ endfunction
 call s:DefineInlineMarkup('Emphasis', '\*', '\*', '\*')
 call s:DefineInlineMarkup('StrongEmphasis', '\*\*', '\*', '\*\*')
 call s:DefineInlineMarkup('InterpretedTextOrHyperlinkReference', '`', '`', '`_\{0,2}')
-call s:DefineInlineMarkup('InlineLiteral', '``', "", '``')
+call s:DefineInlineMarkup('InlineLiteral', '``', '', '``')
 call s:DefineInlineMarkup('SubstitutionReference', '|', '|', '|_\{0,2}')
 call s:DefineInlineMarkup('InlineInternalTargets', '_`', '`', '`')
 
@@ -138,7 +139,7 @@ syn match   rstStandaloneHyperlink  contains=@NoSpell
 syn region rstCodeBlock contained matchgroup=rstDirective
       \ start=+\%(sourcecode\|code\%(-block\)\=\)::\s+
       \ skip=+^$+
-      \ end=+^\s\@!+ 
+      \ end=+^\s\@!+
       \ contains=@NoSpell
 syn cluster rstDirectives add=rstCodeBlock
 
@@ -146,14 +147,14 @@ if !exists('g:rst_syntax_code_list')
     let g:rst_syntax_code_list = ['vim', 'java', 'cpp', 'lisp', 'php', 'python', 'perl']
 endif
 
-for code in g:rst_syntax_code_list
+for g:code in g:rst_syntax_code_list
     unlet! b:current_syntax
-    exe 'syn include @rst'.code.' syntax/'.code.'.vim'
-    exe 'syn region rstDirective'.code.' matchgroup=rstDirective fold '
-                \.'start=#\%(sourcecode\|code\%(-block\)\=\)::\s\+'.code.'\s*$# '
+    exe 'syn include @rst'.g:code.' syntax/'.g:code.'.vim'
+    exe 'syn region rstDirective'.g:code.' matchgroup=rstDirective fold '
+                \.'start=#\%(sourcecode\|code\%(-block\)\=\)::\s\+'.g:code.'\s*$# '
                 \.'skip=#^$# '
-                \.'end=#^\s\@!# contains=@NoSpell,@rst'.code
-    exe 'syn cluster rstDirectives add=rstDirective'.code
+                \.'end=#^\s\@!# contains=@NoSpell,@rst'.g:code
+    exe 'syn cluster rstDirectives add=rstDirective'.g:code
 endfor
 
 " TODO: Use better syncing.
@@ -190,7 +191,7 @@ hi def link rstHyperLinkReference           Identifier
 hi def link rstStandaloneHyperlink          Identifier
 hi def link rstCodeBlock                    String
 
-let b:current_syntax = "rst"
+let b:current_syntax = 'rst'
 
-let &cpo = s:cpo_save
+let &cpoptions = s:cpo_save
 unlet s:cpo_save
