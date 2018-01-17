@@ -1,5 +1,7 @@
-packload
-silent! helptags ALL
+if exists('+packages')
+    packload
+    silent! helptags ALL
+endif
 
 " Permit use of the mouse.
 set mouse=a
