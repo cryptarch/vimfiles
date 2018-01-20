@@ -1,5 +1,7 @@
-packload
-silent! helptags ALL
+if exists('+packages')
+    packload
+    silent! helptags ALL
+endif
 
 " Permit use of the mouse.
 set mouse=a
@@ -83,3 +85,4 @@ runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
 runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim
+runtime helpers/Operators.vim
