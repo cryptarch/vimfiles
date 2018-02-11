@@ -26,6 +26,7 @@ hi Visual term=reverse cterm=reverse
 set fillchars=stl:-,stlnc:-,vert:\|
 set nohlsearch
 set incsearch
+set nonumber
 
 " All teh opsec
 set cryptmethod=blowfish
