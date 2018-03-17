@@ -4,7 +4,7 @@
 " Last Change:	2005 Jun 20
 
 " Quit when a (custom) syntax file was already loaded
-if exists("b:current_syntax")
+if exists('b:current_syntax')
   finish
 endif
 
@@ -26,6 +26,6 @@ hi def link confComment	Comment
 hi def link confTodo	Todo
 hi def link confString	String
 
-let b:current_syntax = "conf"
+let b:current_syntax = 'conf'
 
 " vim: ts=8 sw=2

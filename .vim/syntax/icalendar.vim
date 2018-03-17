@@ -5,9 +5,9 @@
 " Version:       0.3
 
 " Quit if syntax file is already loaded
-if version < 600
+if v:version < 600
   syntax clear
-elseif exists("b:current_syntax")
+elseif exists('b:current_syntax')
   finish
 endif
 
@@ -46,8 +46,6 @@ IcalHiLink	icalSetValue	Special
 IcalHiLink	icalCustom	Error
 
 delcommand IcalHiLink
-  
-let b:current_syntax = "icalendar"
+let b:current_syntax = 'icalendar'
 
 "EOF vim: tw=78:ft=vim:ts=8
-
