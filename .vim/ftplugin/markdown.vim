@@ -28,3 +28,6 @@ iabbrev <buffer> \--\ —
 if exists('g:loaded_abolish') " Require github:tpope/vim-abolish
     nnoremap <buffer> tt :S/[{X, }]/[{ ,X}]/<CR>
 endif
+
+" Grab inline code
+onoremap ` i`
