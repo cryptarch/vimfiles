@@ -47,3 +47,23 @@ function! CapitaliseInitials(type, ...)
     let &selection = l:sel_save
     let @@=reg_save
 endfunction
+
+" Execute text captured by motion as an external filter (i.e. shell command)
+nnoremap <leader>! :set opfunc=ExecuteThatThing<CR>g@
+vnoremap <leader>! :<C-U>call ExecuteThatThing(visualmode(), 1)<CR>
+function! ExecuteThatThing(type, ...)
+    let l:sel_save = &selection
+    let &selection = 'inclusive'
+    let l:reg_save = @@
+    if a:0  " Invoked from Visual mode, use gv command.
+        silent exe "normal! gvy"
+    elseif a:type ==# 'line'
+        silent exe "normal! '[V']y"
+    else
+        silent exe "normal! `[v`]y"
+    endif
+    let @c = substitute(@", "^", "r ! ", "")
+    silent exe @c
+    let &selection = l:sel_save
+    let @@=l:reg_save
+endfunction
