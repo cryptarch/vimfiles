@@ -4,12 +4,7 @@
 "
 " Don't try to omap <|> since they are needed for indenting.
 " Don't try to omap $ since it is needed to match the end of a line.
-onoremap " i"
-onoremap ' i'
-onoremap * i*
-onoremap ( i(
-onoremap [ i[
-onoremap { i{
+" Don't try to omap, say, { to i{, since { is already required for another type of motion.
 
 " Simplify working with clipboard
 if has('x11')
