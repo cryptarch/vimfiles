@@ -6,7 +6,7 @@
 " Don't try to omap $ since it is needed to match the end of a line.
 " Don't try to omap, say, { to i{, since { is already required for another type of motion.
 
-" Simplify working with clipboard
+" Simplify working with clipboard and primary selection
 if has('x11')
     nnoremap + :let @+=@0<CR>
     nnoremap <silent> <C-c> :set opfunc=YankCB<CR>g@
@@ -20,6 +20,22 @@ if has('x11')
             silent exe "normal! '[V']\"+y"
         else
             silent exe "normal! `[v`]\"+y"
+        endif
+        let &selection = l:sel_save
+    endfunction
+
+    nnoremap * :let @*=@0<CR>
+    nnoremap <silent> <C-C> :set opfunc=YankPS<CR>g@
+    vnoremap <silent> <C-C> :<C-U>call YankPS(visualmode(), 1)<CR>
+    function! YankPS(type, ...)
+        let l:sel_save = &selection
+        let &selection = 'inclusive'
+        if a:0  " Invoked from Visual mode, use gv command.
+            silent exe "normal! gv\"*y"
+        elseif a:type ==# 'line'
+            silent exe "normal! '[V']\"*y"
+        else
+            silent exe "normal! `[v`]\"*y"
         endif
         let &selection = l:sel_save
     endfunction
