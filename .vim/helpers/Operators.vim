@@ -25,8 +25,8 @@ if has('x11')
     endfunction
 
     nnoremap * :let @*=@0<CR>
-    nnoremap <silent> <C-C> :set opfunc=YankPS<CR>g@
-    vnoremap <silent> <C-C> :<C-U>call YankPS(visualmode(), 1)<CR>
+    nnoremap <silent> <leader>c :set opfunc=YankPS<CR>g@
+    vnoremap <silent> <leader>c :<C-U>call YankPS(visualmode(), 1)<CR>
     function! YankPS(type, ...)
         let l:sel_save = &selection
         let &selection = 'inclusive'
