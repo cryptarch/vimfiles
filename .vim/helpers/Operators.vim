@@ -2,7 +2,7 @@
 " everything between two delimiters, we should usually
 " do an inner movement.
 "
-" Don't try to omap <|> since they are needed for indenting.
+" Don't try to omap < or > since they are needed for indenting.
 " Don't try to omap $ since it is needed to match the end of a line.
 " Don't try to omap, say, { to i{, since { is already required for another type of motion.
 
