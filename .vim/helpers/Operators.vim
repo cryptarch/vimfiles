@@ -6,6 +6,8 @@
 " Don't try to omap $ since it is needed to match the end of a line.
 " Don't try to omap, say, { to i{, since { is already required for another type of motion.
 
+onoremap <silent> il :<C-U>normal! 0v$<CR>
+
 " Simplify working with clipboard and primary selection
 if has('x11')
     nnoremap + :let @+=@0<CR>
