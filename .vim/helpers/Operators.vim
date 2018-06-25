@@ -62,8 +62,8 @@ function! CapitaliseInitials(type, ...)
 endfunction
 
 " Execute text captured by motion as an external filter (i.e. shell command)
-nnoremap X :set opfunc=ExecuteThatThing<CR>g@
-vnoremap X :<C-U>call ExecuteThatThing(visualmode(), 1)<CR>
+nnoremap <silent> X :set opfunc=ExecuteThatThing<CR>g@
+vnoremap <silent> X :<C-U>call ExecuteThatThing(visualmode(), 1)<CR>
 function! ExecuteThatThing(type, ...)
     let l:sel_save = &selection
     let &selection = 'inclusive'
