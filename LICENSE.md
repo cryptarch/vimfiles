@@ -15,9 +15,7 @@ Refer to LICENCE.CC_BY_SA for more information.
 The `markdown` syntax file is copyright [Ben Williams <benw@plasticboy.com>](http://plasticboy.com/markdown-vim-mode/)
 and under the MIT licence (see LICENCE.MIT for details).
 
-Lots of other tips came from many forgotten places on the internet.
-I think I'm using them under "fair use" since it's just a line or two at a time,
-but if you think I should be attributing you or I'm using an inconsistent licence then let me know.
+Many configs herein came from Vim Tips or StackOverflow, both licensed CC-BY-SA.
 
 All other content can be used according to BSD 3-clause:
 
