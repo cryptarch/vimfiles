@@ -8,6 +8,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Exit visual mode immediately
+vnoremap <Esc> <C-C>
+
 " Custom navigation.
 noremap <S-E> ge
 
