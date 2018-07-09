@@ -9,6 +9,9 @@
 " Inner line
 onoremap <silent> il :<C-U>normal! <S-V><CR>
 
+" Inner command: treat first few characters as a prompt to be ignored
+onoremap <silent> ic :<C-U>normal! 3\|v$<CR>
+
 " Simplify working with clipboard and primary selection
 if has('x11')
     nnoremap + :let @+=@0<CR>
