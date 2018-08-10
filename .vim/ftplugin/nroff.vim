@@ -5,11 +5,11 @@ function! Embolden(type, ...)
     let l:sel_save = &selection
     let &selection = 'inclusive'
     if a:0  " Invoked from Visual mode, use gv to recapture selection.
-        silent exe "normal! gv\<esc>`>a\\fR\<esc>`<i\\fB\<esc>"
+        silent exe "normal! gv\<esc>`>a\\fB\<esc>`<i\\fR\<esc>"
     elseif a:type ==# 'line'
-        silent exe "normal! '[V']\<esc>`>a\\fR\<esc>`<i\\fB\<esc>"
+        silent exe "normal! '[V']\<esc>`>a\\fB\<esc>`<i\\fR\<esc>"
     else
-        silent exe "normal! `[v`]\<esc>`>a\\fR\<esc>`<i\\fB\<esc>"
+        silent exe "normal! `[v`]\<esc>`>a\\fB\<esc>`<i\\fR\<esc>"
     endif
     let &selection = l:sel_save
 endfunction
