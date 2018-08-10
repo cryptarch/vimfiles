@@ -83,3 +83,5 @@ function! ExecuteThatThing(type, ...)
     let &selection = l:sel_save
     let @@=l:reg_save
 endfunction
+
+nmap <Return> Xic
