@@ -25,9 +25,17 @@ nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
 iabbrev <buffer> \--\ —
 
 " Checklist mgmt
-if exists('g:loaded_abolish') " Require github:tpope/vim-abolish
-    nnoremap <buffer> tt :S/[{X, }]/[{ ,X}]/<CR>
+if exists('g:loaded_checklist')
+    nnoremap <localleader><Space> :ChecklistToggleCheckbox<cr>
+    vnoremap <localleader><Space> :ChecklistToggleCheckbox<cr>
+
+    nnoremap <localleader>y :ChecklistEnableCheckbox<cr>
+    vnoremap <localleader>y :ChecklistEnableCheckbox<cr>
+
+    nnoremap <localleader>n :ChecklistDisableCheckbox<cr>
+    vnoremap <localleader>n :ChecklistDisableCheckbox<cr>
 endif
+
 
 " Grab inline code
 onoremap ` i`
