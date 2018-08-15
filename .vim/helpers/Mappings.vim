@@ -132,6 +132,9 @@ nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 nnoremap <leader>: :<C-F>
 nnoremap <leader>/ /<C-F>
 
+" Registry helpers
+nnoremap <leader>rd :call setreg(input('"'), [])<CR>
+
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
 
