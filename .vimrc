@@ -52,6 +52,10 @@ set nojoinspaces
 " Ref h: press-enter, h: shortmess
 set shortmess=aoOtTW
 
+" Ensure backspace works as intended regardless of what is default
+" Ref: http://vim.wikia.com/wiki/Backspace_and_delete_problems
+set backspace=indent,eol,start
+
 "Set the print header. See help: statusline for explanation of symbols."
 set printheader=%F%=%-%Page\ %N
 
