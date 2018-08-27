@@ -6,7 +6,11 @@
 " Don't try to omap $ since it is needed to match the end of a line.
 " Don't try to omap, say, { to i{, since { is already required for another type of motion.
 
-onoremap <silent> il :<C-U>normal! 0v$<CR>
+" Inner line
+onoremap <silent> il :<C-U>normal! <S-V><CR>
+
+" Inner command: treat first few characters as a prompt to be ignored
+onoremap <silent> ic :<C-U>normal! 3\|v$<CR>
 
 " Simplify working with clipboard and primary selection
 if has('x11')
@@ -79,3 +83,5 @@ function! ExecuteThatThing(type, ...)
     let &selection = l:sel_save
     let @@=l:reg_save
 endfunction
+
+nmap <Return> Xic

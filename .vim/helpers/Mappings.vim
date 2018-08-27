@@ -8,6 +8,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Exit visual mode immediately
+vnoremap <Esc> <C-C>
+
 " Custom navigation.
 noremap <S-E> ge
 
@@ -128,6 +131,9 @@ nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 " cmdwin helpers
 nnoremap <leader>: :<C-F>
 nnoremap <leader>/ /<C-F>
+
+" Registry helpers
+nnoremap <leader>rd :call setreg(input('"'), [])<CR>
 
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
