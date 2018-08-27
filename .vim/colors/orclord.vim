@@ -37,6 +37,10 @@ hi fgStagnantPond ctermfg=30
 hi fgBoldStagnantPond cterm=bold ctermfg=30
 hi fgFecund ctermfg=125
 hi bgGloom ctermbg=234
+hi bgForest ctermbg=28
+hi bgStagnantPond ctermbg=30
+hi bgAftermath ctermbg=130 ctermfg=Black
+hi bgBurn ctermbg=166 ctermfg=White
 
 hi! link Comment fgBlood
 hi! link Constant fgBoldBurn
@@ -64,6 +68,12 @@ hi! link cTerminator fgAftermath
 hi! link cIncluded fgBoldBruise
 hi! link Bracket fgBruise
 hi! link Argument fgForest
+
+hi! link FoldColumn fgRed
+hi! link DiffAdd bgSlime
+hi! link DiffDelete bgRust
+hi! link DiffChange bgAftermath
+hi! link DiffText bgBurn
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.
