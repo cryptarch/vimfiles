@@ -105,6 +105,10 @@ function UpdateModifiable()
 endfunction
 autocmd BufReadPost * call UpdateModifiable()
 
+if $DISPLAY == ""
+    set mouse="r"
+endif
+
 set updatetime=500
 runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
