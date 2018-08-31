@@ -13,7 +13,7 @@ onoremap <silent> il :<C-U>normal! <S-V><CR>
 onoremap <silent> ic :<C-U>normal! 3\|v$<CR>
 
 " Simplify working with clipboard and primary selection
-if has('x11')
+if has('x11') && $DISPLAY != ""
     nnoremap + :let @+=@0<CR>
     nnoremap <silent> <C-c> :set opfunc=YankCB<CR>g@
     vnoremap <silent> <C-c> :<C-U>call YankCB(visualmode(), 1)<CR>
@@ -45,6 +45,9 @@ if has('x11')
         endif
         let &selection = l:sel_save
     endfunction
+else
+    nnoremap <silent> <C-c> <nop>
+    nnoremap <silent> <leader>c <nop>
 endif
 
 "nnoremap gt :s/\v<(.)(\w*)/\u\1\L\2/g<CR>
@@ -83,3 +86,5 @@ function! ExecuteThatThing(type, ...)
     let &selection = l:sel_save
     let @@=l:reg_save
 endfunction
+
+nmap <Return> Xic
