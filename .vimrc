@@ -105,7 +105,7 @@ function UpdateModifiable()
 endfunction
 autocmd BufReadPost * call UpdateModifiable()
 
-if $DISPLAY == ""
+if $DISPLAY == "" || !has('x11')
     set mouse="r"
 endif
 
