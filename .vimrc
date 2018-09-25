@@ -105,7 +105,7 @@ function UpdateModifiable()
 endfunction
 autocmd BufReadPost * call UpdateModifiable()
 
-if $DISPLAY == ""
+if $DISPLAY == "" || !has('x11')
     set mouse="r"
 endif
 
@@ -115,3 +115,4 @@ runtime helpers/gitgutter_config.vim
 runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim
 runtime helpers/Operators.vim
+runtime helpers/cmdwin_config.vim
