@@ -11,9 +11,6 @@ noremap <Right> <NOP>
 " Exit visual mode immediately
 vnoremap <Esc> <C-C>
 
-" Custom navigation.
-noremap <S-E> ge
-
 " Increment/decrement numbers
 nnoremap ++ <C-A>
 nnoremap -- <C-X>
