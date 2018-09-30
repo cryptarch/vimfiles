@@ -19,6 +19,7 @@ nnoremap -- <C-X>
 let g:mapleader = ';'
 let g:maplocalleader = ','
 
+" Rep sub
 nnoremap <leader>. :&&<CR>
 
 " Map to run shell command
