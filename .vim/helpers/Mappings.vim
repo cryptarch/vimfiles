@@ -97,8 +97,8 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . ', '
 \ . synIDattr(synIDtrans(synID(line("."),col("."),0)),"name") . ">"<CR>
 
 "Make buffers easier to work with. Bclose is defined in plugin/bclose.vim"
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+nnoremap <leader>l :bnext<CR>
+nnoremap <leader>h :bprevious<CR>
 nnoremap <C-W> :Bclose<CR>
 
 " Navigate b/w panes.
@@ -121,10 +121,6 @@ inoremap <C-D> <C-R>=strftime("%F")<CR>
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
-
-" Toggle search highlighting
-" Ref http://vim.wikia.com/wiki/VimTip14
-nnoremap <leader>h :set hlsearch! hlsearch?<CR>
 
 " cmdwin helpers
 nnoremap <leader>: :<C-F>
