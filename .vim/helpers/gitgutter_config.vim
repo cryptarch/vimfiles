@@ -8,4 +8,4 @@ let g:gitgutter_sign_modified = 'Δ'
 let g:gitgutter_sign_modified_removed = '≃'
 
 let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg = black
+hi! link SignColumn fgRed
