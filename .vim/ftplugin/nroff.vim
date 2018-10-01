@@ -5,11 +5,11 @@ function! Embolden(type, ...)
     let l:sel_save = &selection
     let &selection = 'inclusive'
     if a:0  " Invoked from Visual mode, use gv to recapture selection.
-        silent exe "normal! gv\<esc>`>a\\fB\<esc>`<i\\fR\<esc>"
+        silent exe "normal! gv\<esc>`>a\\fR\<esc>`<i\\fB\<esc>"
     elseif a:type ==# 'line'
-        silent exe "normal! '[V']\<esc>`>a\\fB\<esc>`<i\\fR\<esc>"
+        silent exe "normal! '[V']\<esc>`>a\\fR\<esc>`<i\\fB\<esc>"
     else
-        silent exe "normal! `[v`]\<esc>`>a\\fB\<esc>`<i\\fR\<esc>"
+        silent exe "normal! `[v`]\<esc>`>a\\fR\<esc>`<i\\fB\<esc>"
     endif
     let &selection = l:sel_save
 endfunction
@@ -21,11 +21,11 @@ function! Italicise(type, ...)
     let l:sel_save = &selection
     let &selection = 'inclusive'
     if a:0  " Invoked from Visual mode, use gv to recapture selection.
-        silent exe "normal! gv\<esc>`>a\\fI\<esc>`<i\\fR\<esc>"
+        silent exe "normal! gv\<esc>`>a\\fR\<esc>`<i\\fI\<esc>"
     elseif a:type ==# 'line'
-        silent exe "normal! '[V']\<esc>`>a\\fI\<esc>`<i\\fR\<esc>"
+        silent exe "normal! '[V']\<esc>`>a\\fR\<esc>`<i\\fI\<esc>"
     else
-        silent exe "normal! `[v`]\<esc>`>a\\fI\<esc>`<i\\fR\<esc>"
+        silent exe "normal! `[v`]\<esc>`>a\\fR\<esc>`<i\\fI\<esc>"
     endif
     let &selection = l:sel_save
 endfunction
