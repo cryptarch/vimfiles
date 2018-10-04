@@ -9,7 +9,7 @@ if exists('syntax_on')
 endif
 let g:colors_name = 'orclord'
 
-hi Normal ctermfg=250
+hi fgBone ctermfg=250
 hi fgOvercast ctermfg=244
 hi fgBoldOvercast cterm=bold ctermfg=244
 hi fgStorm ctermfg=245

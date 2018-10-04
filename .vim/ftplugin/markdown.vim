@@ -24,11 +24,12 @@ nnoremap <buffer> } /[[:print:]]$\n^[[:space:]]*$<CR>
 
 iabbrev <buffer> \--\ —
 
+" Ref https://stackoverflow.com/a/766093
+nnoremap <localleader><Space> :s/\(\[x\]\)\\|\(\[ \]\)/\={'[x]':'[ ]','[ ]':'[x]'}[submatch(0)]/g<cr>
+vnoremap <localleader><Space> :s/\(\[x\]\)\\|\(\[ \]\)/\={'[x]':'[ ]','[ ]':'[x]'}[submatch(0)]/g<cr>
+
 " Checklist mgmt
 if exists('g:loaded_checklist')
-    nnoremap <localleader><Space> :ChecklistToggleCheckbox<cr>
-    vnoremap <localleader><Space> :ChecklistToggleCheckbox<cr>
-
     nnoremap <localleader>y :ChecklistEnableCheckbox<cr>
     vnoremap <localleader>y :ChecklistEnableCheckbox<cr>
 
