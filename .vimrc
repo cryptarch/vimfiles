@@ -105,6 +105,7 @@ function UpdateModifiable()
 endfunction
 autocmd BufReadPost * call UpdateModifiable()
 
+set clipboard-=autoselect
 if $DISPLAY == "" || !has('x11')
     set mouse="r"
 endif

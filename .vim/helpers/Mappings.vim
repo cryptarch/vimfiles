@@ -5,8 +5,6 @@ nnoremap - <NOP>
 nnoremap _ <NOP>
 noremap <Up> <NOP>
 noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
 
 " Exit visual mode immediately
 vnoremap <Esc> <C-C>
@@ -97,9 +95,9 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . ', '
 \ . synIDattr(synIDtrans(synID(line("."),col("."),0)),"name") . ">"<CR>
 
 "Make buffers easier to work with. Bclose is defined in plugin/bclose.vim"
-nnoremap <leader>l :bnext<CR>
-nnoremap <leader>h :bprevious<CR>
-nnoremap <C-W> :Bclose<CR>
+nnoremap <Right> :bnext<CR>
+nnoremap <Left>  :bprevious<CR>
+nnoremap <C-W>   :Bclose<CR>
 
 " Navigate b/w panes.
 nnoremap <silent> <C-Right> :vertical botright split<CR>
