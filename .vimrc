@@ -75,6 +75,21 @@ set iskeyword-=_
 " Preserve undo history when switching buffers.
 set hidden
 
+" Control what information gets preserved between sessions
+set viminfo='128,<64,s32,h
+
+" Restore last known cursor position:
+function! RestoreCursor()
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
+endfunction
+augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call RestoreCursor()
+augroup END
+
 " Permit per-project vimrc files but in that case run vim securely.
 set exrc
 set secure
