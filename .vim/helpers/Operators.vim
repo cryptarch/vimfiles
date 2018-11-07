@@ -88,3 +88,21 @@ function! ExecuteThatThing(type, ...)
 endfunction
 
 nmap <Return> Xic
+
+" Do join (J) as an operation
+nnoremap <silent> <leader>j :set opfunc=Join<CR>g@
+vnoremap <silent> <leader>j :<C-U>call Join(visualmode(), 1)<CR>
+function! Join(type, ...)
+    let l:sel_save = &selection
+    let &selection = 'inclusive'
+    let l:reg_save = @@
+    if a:0  " Invoked from Visual mode, use gv command.
+        silent exe "normal! gvJ"
+    elseif a:type ==# 'line'
+        silent exe "normal! '[V']J"
+    else
+        silent exe "normal! `[v`]J"
+    endif
+    let &selection = l:sel_save
+    let @@=l:reg_save
+endfunction
