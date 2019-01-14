@@ -7,7 +7,8 @@
 " Don't try to omap, say, { to i{, since { is already required for another type of motion.
 
 " Inner line
-onoremap <silent> il :<C-U>normal! <S-V><CR>
+onoremap <silent> il :<C-U>normal! 0v$<CR>
+onoremap <silent> al :<C-U>normal! <S-V><CR>
 
 " Inner command: treat first few characters as a prompt to be ignored
 onoremap <silent> ic :<C-U>normal! 3\|v$<CR>
