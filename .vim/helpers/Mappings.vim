@@ -130,6 +130,10 @@ nnoremap <leader>rd :call setreg(input('"'), [])<CR>
 " Make current file executable.
 nnoremap <silent> <leader>e :!chmod +x %<CR><CR>
 
+" netrw explore bindings for navigating directories
+nnoremap <silent> <Tab> :Texplore<CR>
+nnoremap <silent> <Backspace> :Rexplore<CR>
+
 " Git commit current file.
 function! GitCommitCurrentFile()
     let l:isgit = system('git ' . 'rev-parse ' . '--is-inside-work-tree')
