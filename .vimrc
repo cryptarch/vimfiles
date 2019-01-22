@@ -125,6 +125,21 @@ if $DISPLAY == "" || !has('x11')
     set mouse="r"
 endif
 
+" If the parent directory did not exist, it would be necessary to invent it
+" Ref: https://vi.stackexchange.com/a/679
+function MkdirFunction(dir)
+    if empty(a:dir) || isdirectory(a:dir)
+        return
+    else
+        call mkdir(a:dir)
+    endif
+endfunction
+augroup MkdirGroup
+    autocmd!
+    autocmd BufWritePre * call MkdirFunction(expand("<afile>:p:h"))
+augroup END
+
+
 set updatetime=500
 runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
