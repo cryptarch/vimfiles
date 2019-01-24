@@ -83,7 +83,7 @@ function! ExecuteThatThing(type, ...)
     else
         silent exe "normal! `[v`]y"
     endif
-    silent exec "r ! " . escape(@", "%!#")
+    silent exec "r ! " . escape(@", "%!#\r\n")
     let &selection = l:sel_save
     let @@=l:reg_save
 endfunction
