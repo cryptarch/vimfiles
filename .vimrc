@@ -48,6 +48,8 @@ set shiftround
 " Don't put two spaces between sentences!
 set nojoinspaces
 
+set equalprg=jq\ .
+
 "Reduce the interference created by running shell commands.
 " Ref h: press-enter, h: shortmess
 set shortmess=aoOtTW
