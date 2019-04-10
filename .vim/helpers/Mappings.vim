@@ -39,6 +39,7 @@ vnoremap <leader>< c<<esc>a><esc>P`[v`]
 
 " Break line at cursor.
 nnoremap <leader>k i<CR><esc>
+vnoremap <leader>k :s/\%V/\r/<CR>
 
 " Paste below/above
 nnoremap <leader>p :put<CR>
