@@ -64,7 +64,6 @@ function! ToggleShowLongShortLines()
         set nowrap
     endif
 endfunction
-nnoremap <leader>w :call ToggleShowLongShortLines()<CR>
 
 " Add lines above or below current without entering insert mode.
 " From vimtips wiki:
@@ -83,6 +82,9 @@ vnoremap <space> zf
 
 " Exit everything immediately.
 nnoremap <leader>q :qa!<CR>
+
+" Save changes in all buffers
+nnoremap <leader>w :wa<CR>
 
 " Save. Note that choosing <C-S> will freeze the terminal unless
 " stty -ixon is set in .bashrc
