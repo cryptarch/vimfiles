@@ -118,6 +118,8 @@ nnoremap <C-X> "+p
 inoremap <C-X> <esc>"+pa
 inoremap <C-D> <C-R>=strftime("%F")<CR>
 
+inoremap <C-P> <C-R>0
+
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
 
