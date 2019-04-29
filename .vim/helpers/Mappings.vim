@@ -39,6 +39,7 @@ vnoremap <leader>< c<<esc>a><esc>P`[v`]
 
 " Break line at cursor.
 nnoremap <leader>k i<CR><esc>
+vnoremap <leader>k :s/\%V/\r/<CR>
 
 " Paste below/above
 nnoremap <leader>p :put<CR>
@@ -118,6 +119,8 @@ inoremap <C-N> <esc>"%pa
 nnoremap <C-X> "+p
 inoremap <C-X> <esc>"+pa
 inoremap <C-D> <C-R>=strftime("%F")<CR>
+
+inoremap <C-P> <C-R>0
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
