@@ -30,6 +30,7 @@ set nonumber
 
 " All teh opsec
 set cryptmethod=blowfish
+set nomodeline
 
 " Automatically deal with valid filetypes.
 filetype on
