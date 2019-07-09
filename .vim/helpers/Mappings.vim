@@ -118,7 +118,8 @@ cnoreabbrev vh vert botright help
 inoremap <C-N> <esc>"%pa
 nnoremap <C-X> "+p
 inoremap <C-X> <esc>"+pa
-inoremap <C-D> <C-R>=strftime("%F")<CR>
+nnoremap <leader>d a<C-R>=strftime("%F")<CR><esc>
+inoremap <leader>d <C-R>=strftime("%F")<CR>
 
 inoremap <C-P> <C-R>0
 
