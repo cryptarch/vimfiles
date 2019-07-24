@@ -18,9 +18,16 @@ set fileformats=unix
 set sidescroll=1
 
 " Colours and syntax highlighting.
-set t_Co=256
+" :h terminal-options (to enable termguicolors properly in st terminal)
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set termguicolors
+
 syntax on
-color orclord
+packadd! vim-colors-paramount
+color paramount
+set background=dark
+
 hi Normal ctermbg=NONE
 hi Visual term=reverse cterm=reverse
 set fillchars=stl:-,stlnc:-,vert:\|
