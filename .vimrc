@@ -131,7 +131,6 @@ augroup MkdirGroup
     autocmd BufWritePre * call MkdirFunction(expand("<afile>:p:h"))
 augroup END
 
-
 set updatetime=500
 runtime helpers/theme.vim
 runtime helpers/airline_config.vim
