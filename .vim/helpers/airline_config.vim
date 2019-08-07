@@ -2,7 +2,7 @@ augroup airline_config
     au!
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#show_tab_type = 0
-    let g:airline_theme='zenburn'
+    let g:airline_theme='jet'
 
     "recalculate statusline warnings when idle and after saving
     autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
