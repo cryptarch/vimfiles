@@ -5,8 +5,7 @@ set t_8b=[48;2;%lu;%lu;%lum
 set termguicolors
 
 syntax on
-packadd! vim-colors-paramount
-color paramount
+color orclord
 set background=dark
 
 hi Normal ctermbg=NONE
