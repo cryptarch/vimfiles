@@ -17,17 +17,6 @@ set fileformats=unix
 
 set sidescroll=1
 
-" Colours and syntax highlighting.
-set t_Co=256
-syntax on
-color orclord
-hi Normal ctermbg=NONE
-hi Visual term=reverse cterm=reverse
-set fillchars=stl:-,stlnc:-,vert:\|
-set nohlsearch
-set incsearch
-set nonumber
-
 " All teh opsec
 set cryptmethod=blowfish
 set nomodeline
@@ -142,8 +131,8 @@ augroup MkdirGroup
     autocmd BufWritePre * call MkdirFunction(expand("<afile>:p:h"))
 augroup END
 
-
 set updatetime=500
+runtime helpers/theme.vim
 runtime helpers/airline_config.vim
 runtime helpers/gitgutter_config.vim
 runtime helpers/ale_config.vim
