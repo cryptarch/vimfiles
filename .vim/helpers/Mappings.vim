@@ -92,10 +92,12 @@ nnoremap <leader>w :wa<CR>
 nnoremap <leader>s :w<CR>
 
 " Show syntax group under the cursor.
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . ', '
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . "> lo<"
-\ . synIDattr(synID(line("."),col("."),0),"name") . ', '
-\ . synIDattr(synIDtrans(synID(line("."),col("."),0)),"name") . ">"<CR>
+" Ref: https://stackoverflow.com/a/37040415
+function! SynGp()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfunction
+nnoremap <F10> :call SynGp()<CR>
 
 "Make buffers easier to work with. Bclose is defined in plugin/bclose.vim"
 nnoremap <Right> :bnext<CR>
