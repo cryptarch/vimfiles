@@ -58,8 +58,18 @@ set laststatus=2
 "Set up folding.
 " Ref https://vi.stackexchange.com/a/8671
 set foldmethod=indent
-autocmd! BufReadPost * :if line('$') > 30 | set foldlevel=0 | else | set foldlevel=1 | endif
-
+function AutoFold()
+    if line('$') > 30
+        set foldlevel=0
+    elseif line('$') > 20
+        set foldlevel=1
+    elseif line('$') > 10
+        set foldlevel=2
+    else
+        set foldlevel=3
+    endif
+endfunction
+autocmd! BufReadPost * call AutoFold()
 
 " Suppress W16 warnings.
 set autoread
