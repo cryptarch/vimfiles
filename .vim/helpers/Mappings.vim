@@ -80,6 +80,8 @@ nnoremap <silent> gl "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\
 " Accordion folds. NB: It isn't possible to map <S-space> in most terminal environments.
 nnoremap <space> za
 vnoremap <space> zf
+nnoremap <localleader>> zR
+nnoremap <localleader>< zM
 
 " Exit everything immediately.
 nnoremap <leader>q :qa!<CR>
