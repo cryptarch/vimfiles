@@ -119,9 +119,6 @@ nnoremap <silent> <C-L> :wincmd l<CR>
 cnoreabbrev vh vert botright help
 
 " Commands to insert useful information.
-inoremap <C-N> <esc>"%pa
-nnoremap <C-X> "+p
-inoremap <C-X> <esc>"+pa
 nnoremap <leader>d a<C-R>=strftime("%F")<CR><esc>
 inoremap <leader>d <C-R>=strftime("%F")<CR>
 
