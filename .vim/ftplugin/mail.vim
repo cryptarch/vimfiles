@@ -7,6 +7,9 @@ runtime helpers/GrammarCheck.vim
 inoremap <buffer> <C-P> <esc>:read ~/cb<CR>i
 nnoremap <buffer> <C-P> :read ~/cb<CR>
 
+nnoremap <buffer> j              gj
+nnoremap <buffer> k              gk
+
 " :h swapfile
 "  `This option can be reset when a swapfile is not wanted
 "   for a specific buffer.  For example, with confidential information
