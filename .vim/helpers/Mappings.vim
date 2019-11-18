@@ -130,6 +130,7 @@ nnoremap <leader>n :setlocal number!<CR>
 " cmdwin helpers
 nnoremap <leader>: :<C-F>
 nnoremap <leader>/ /<C-F>
+nnoremap <leader>? ?<C-F>
 
 " Registry helpers
 nnoremap <leader>rd :call setreg(input('"'), [])<CR>
