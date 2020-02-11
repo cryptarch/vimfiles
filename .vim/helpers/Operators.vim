@@ -59,11 +59,11 @@ function! CapitaliseInitials(type, ...)
     let &selection = 'inclusive'
     let reg_save=@@
     if a:0  " Invoked from Visual mode, use gv command.
-        silent exe "normal! gv" . ':s/\%V\v<(\S)(\S*)/\u\1\L\2\E/ge'. "\<CR>"
+        silent exe "normal! mzgv" . ':s/\%V\v<(\S)(\S*)/\u\1\L\2\E/ge'. "\<CR>`z"
     elseif a:type ==# 'line'
         silent exe "normal! '[V']" . ':s/\%V\v<(\S)(\S*)/\u\1\L\2\E/ge' . "\<CR>"
     else
-        silent exe "normal! `[v`]" . ':s/\%V\v<(\S)(\S*)/\u\1\L\2\E/ge' . "\<CR>"
+        silent exe "normal! `[mzv`]" . ':s/\%V\v<(\S)(\S*)/\u\1\L\2\E/ge' . "\<CR>`z"
     endif
     let &selection = l:sel_save
     let @@=reg_save
