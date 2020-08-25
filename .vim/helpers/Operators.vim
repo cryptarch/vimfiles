@@ -6,7 +6,7 @@
 " Don't try to omap $ since it is needed to match the end of a line.
 " Don't try to omap, say, { to i{, since { is already required for another type of motion.
 
-" Inner line
+" Line motion
 onoremap <silent> il :<C-U>normal! 0v$<CR>
 onoremap <silent> al :<C-U>normal! <S-V><CR>
 
@@ -77,11 +77,11 @@ function! ExecuteThatThing(type, ...)
     let &selection = 'inclusive'
     let l:reg_save = @@
     if a:0  " Invoked from Visual mode, use gv command.
-        silent exe "normal! gvy"
+        silent exe "normal! gvy`>"
     elseif a:type ==# 'line'
-        silent exe "normal! '[V']y"
+        silent exe "normal! '[V']y`>"
     else
-        silent exe "normal! `[v`]y"
+        silent exe "normal! `[v`]y`>"
     endif
     silent exec "r ! " . escape(@", "%!#\r\n")
     let &selection = l:sel_save
