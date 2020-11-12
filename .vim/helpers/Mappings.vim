@@ -122,8 +122,6 @@ cnoreabbrev vh vert botright help
 nnoremap <leader>d a<C-R>=strftime("%F")<CR><esc>
 inoremap <leader>d <C-R>=strftime("%F")<CR>
 
-inoremap <C-P> <C-R>0
-
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
 nnoremap <leader>n :setlocal number!<CR>
 

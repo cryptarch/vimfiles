@@ -35,6 +35,9 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 
+" ins-completion and popup menu
+set completeopt=menuone,popup
+
 " Don't put two spaces between sentences!
 set nojoinspaces
 

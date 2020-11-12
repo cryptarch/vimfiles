@@ -42,6 +42,7 @@ hi bgForest                         ctermbg=28                                  
 hi bgStagnantPond                   ctermbg=30                                  guibg=#008080
 hi bgAftermath                      ctermbg=130     ctermfg=Black               guibg=#a06000   guifg=#000000
 hi bgBurn                           ctermbg=166     ctermfg=White               guibg=#d06000   guifg=#ffffff
+hi bgOvercast                       ctermbg=244     ctermfg=Black               guibg=#808080   guifg=#000000
 
 hi! link Comment fgBlood
 hi! link Constant fgBoldBurn
@@ -113,6 +114,10 @@ hi clear SpellRare
 hi clear SpellLocal
 hi SpellBad ctermfg=Red
 hi SpellCap cterm=underline
+
+" ins-completion popupmenu
+hi! link Pmenu           bgOvercast
+hi! link PmenuSel        bgBurn
 
 " GitGutter highlights.
 hi! link GitGutterAdd fgStagnantPond
