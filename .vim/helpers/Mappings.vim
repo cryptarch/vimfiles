@@ -130,6 +130,12 @@ nnoremap <leader>: :<C-F>
 nnoremap <leader>/ /<C-F>
 nnoremap <leader>? ?<C-F>
 
+" ins-completion helpers
+" https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+" Also ref :help i_CTRL-g
+inoremap <expr> <CR>    pumvisible() ? '<C-y>' : '<C-g>u<CR>'
+inoremap <expr> <Esc>   pumvisible() ? '<C-e>' : '<Esc>'
+
 " Registry helpers
 nnoremap <leader>rd :call setreg(input('"'), [])<CR>
 
