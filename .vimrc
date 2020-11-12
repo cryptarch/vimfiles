@@ -41,6 +41,9 @@ set completeopt=menuone,popup
 " Don't put two spaces between sentences!
 set nojoinspaces
 
+" Disable adding eol at eof
+set nofixeol
+
 set equalprg=jq\ .
 
 "Reduce the interference created by running shell commands.
