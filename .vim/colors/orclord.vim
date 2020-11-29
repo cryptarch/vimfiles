@@ -126,3 +126,6 @@ hi! link GitGutterChangeDelete  fgBurn
 
 " Markdown
 hi! link Title                  fgBoldFecund
+
+" Worklog
+hi! link MiscBlock              fgStorm
