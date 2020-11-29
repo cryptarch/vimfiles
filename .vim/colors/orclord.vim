@@ -55,7 +55,6 @@ hi! link Type fgWaste
 hi! link Function fgStagnantPond
 hi! link Block fgStagnantPond
 hi! link Operator fgFecund
-hi! link Ignore fgStorm
 hi! link Error bgInfection
 hi! link Todo bgBlood
 hi! link Folded hellrunes
