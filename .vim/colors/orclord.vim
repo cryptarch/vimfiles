@@ -75,6 +75,7 @@ hi! link DiffAdd                bgSlime
 hi! link DiffDelete             bgRust
 hi! link DiffChange             bgAftermath
 hi! link DiffText               bgBurn
+hi! link SpecialKey             Ignore
 
 " Common groups that link to default highlighting.
 " You can specify other highlighting easily.

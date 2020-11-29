@@ -163,4 +163,3 @@ runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim
 runtime helpers/Operators.vim
 runtime helpers/cmdwin_config.vim
-runtime helpers/compat.vim
