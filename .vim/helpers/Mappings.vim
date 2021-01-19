@@ -107,6 +107,13 @@ nnoremap <Right> :bnext<CR>
 nnoremap <Left>  :bprevious<CR>
 nnoremap <C-W>   :Bclose<CR>
 
+"Bindings for ExecuteThatThing
+nmap X  <Plug>(ExecThatThingNormal)
+vmap X  <Plug>(ExecThatThingVisual)
+omap il <Plug>(InnerLineMotion)
+omap ic <Plug>(InnerCommandMotion)
+nmap <Return> Xic
+
 " Navigate b/w panes.
 nnoremap <silent> <C-Right> :vertical botright split<CR>
 nnoremap <silent> <C-Left> :vertical topleft split<CR>
