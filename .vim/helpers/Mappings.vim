@@ -118,9 +118,19 @@ nnoremap <silent> <C-L> :wincmd l<CR>
 " Command to open help in a vertical split.
 cnoreabbrev vh vert botright help
 
-" Commands to insert useful information.
+" Insert the date.
 nnoremap <leader>d a<C-R>=strftime("%F")<CR><esc>
 inoremap <leader>d <C-R>=strftime("%F")<CR>
+
+" Grab current filename, eg to paste into another file
+nnoremap <silent> <leader>% :let @"=@%<CR>
+
+" Generate a uuid
+nnoremap <leader>u a<C-R>=systemlist("uuidgen")[0]<CR><esc>
+inoremap <leader>u <C-R>=systemlist("uuidgen")[0]<CR>
+
+" Make gf open a new file if it doesn't exist.
+noremap gf :e <cfile><CR>
 
 inoremap <C-P> <C-R>0
 
