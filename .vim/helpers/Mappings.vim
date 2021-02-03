@@ -71,6 +71,7 @@ endfunction
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 nnoremap <leader>O O<Esc>j
 nnoremap <leader>o o<Esc>k
+inoremap <C-O>     <Esc>O
 
 " Push current word left or right.
 " Ref: http://vim.wikia.com/wiki/Swapping_characters,_words_and_lines
@@ -105,6 +106,13 @@ nnoremap <F10> :call SynGp()<CR>
 nnoremap <Right> :bnext<CR>
 nnoremap <Left>  :bprevious<CR>
 nnoremap <C-W>   :Bclose<CR>
+
+"Bindings for ExecuteThatThing
+nmap X  <Plug>(ExecThatThingNormal)
+vmap X  <Plug>(ExecThatThingVisual)
+omap il <Plug>(InnerLineMotion)
+omap ic <Plug>(InnerCommandMotion)
+nmap <Return> Xic
 
 " Navigate b/w panes.
 nnoremap <silent> <C-Right> :vertical botright split<CR>
@@ -141,6 +149,12 @@ nnoremap <leader>n :setlocal number!<CR>
 nnoremap <leader>: :<C-F>
 nnoremap <leader>/ /<C-F>
 nnoremap <leader>? ?<C-F>
+
+" ins-completion helpers
+" https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+" Also ref :help i_CTRL-g
+inoremap <expr> <CR>    pumvisible() ? '<C-y>' : '<C-g>u<CR>'
+inoremap <expr> <Esc>   pumvisible() ? '<C-e>' : '<Esc>'
 
 " Registry helpers
 nnoremap <leader>rd :call setreg(input('"'), [])<CR>

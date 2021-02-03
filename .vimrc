@@ -29,8 +29,22 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 
+" ins-completion and popup menu
+set completeopt=menuone,popup,noinsert
+
+" When navigating word-wise, don't treat underscores as internal characters.
+set iskeyword-=_
+
+" However, restore _ when autocompleting
+" https://www.reddit.com/r/vim/comments/22431a/i_ctrln_the_motion_w_and_iskeyword/
+autocmd! InsertLeave <buffer> :set iskeyword-=_
+autocmd! InsertEnter <buffer> :set iskeyword+=_
+
 " Don't put two spaces between sentences!
 set nojoinspaces
+
+" Disable adding eol at eof
+set nofixeol
 
 set equalprg=jq\ .
 
@@ -67,9 +81,6 @@ autocmd! BufReadPost * call AutoFold()
 
 " Suppress W16 warnings.
 set autoread
-
-" When navigating word-wise, don't treat underscores as internal characters.
-set iskeyword-=_
 
 " Preserve undo history when switching buffers.
 set hidden
