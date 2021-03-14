@@ -6,19 +6,13 @@ endif
 " Permit use of the mouse.
 set mouse=a
 
-" Modeline magic.
-" Make vim conform to modelines placed at the end of files.
-" http://vim.wikia.com/wiki/Modeline_magic
-set modeline
-set modelines=5
-
 set fileformat=unix
 set fileformats=unix
 
 set sidescroll=1
 
 " All teh opsec
-set cryptmethod=blowfish
+set cryptmethod=blowfish2
 set nomodeline
 
 " Automatically deal with valid filetypes.
