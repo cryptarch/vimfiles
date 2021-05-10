@@ -83,3 +83,21 @@ function! Join(type, ...)
     let &selection = l:sel_save
     let @@=l:reg_save
 endfunction
+
+" Mask operation, eg for hiding passwords
+nnoremap <silent> <leader>m :set opfunc=Mask<CR>g@
+vnoremap <silent> <leader>m :<C-U>call Mask(visualmode(), 1)<CR>
+function! Mask(type, ...)
+    let l:sel_save = &selection
+    let &selection = 'inclusive'
+    let l:reg_save = @@
+    if a:0  " Invoked from Visual mode, use gv command.
+        silent exe "normal! gvrX"
+    elseif a:type ==# 'line'
+        silent exe "normal! '[V']rX"
+    else
+        silent exe "normal! `[v`]rX"
+    endif
+    let &selection = l:sel_save
+    let @@=l:reg_save
+endfunction
