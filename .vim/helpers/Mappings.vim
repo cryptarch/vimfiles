@@ -140,6 +140,10 @@ inoremap <leader>u <C-R>=systemlist("uuidgen")[0]<CR>
 " Make gf open a new file if it doesn't exist.
 noremap gf :e <cfile><CR>
 
+" Work around gx/netrw bug
+" https://vi.stackexchange.com/a/22505
+nnoremap gx :!xdg-open <cWORD><CR><CR>
+
 inoremap <C-P> <C-R>0
 
 vnoremap <leader>n :s/^/\=(line('.')-line("'<")+1) . ' '/g<CR>
