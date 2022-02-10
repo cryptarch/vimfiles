@@ -101,3 +101,20 @@ function! Mask(type, ...)
     let &selection = l:sel_save
     let @@=l:reg_save
 endfunction
+
+nnoremap <silent> <leader>" :set opfunc=DoubleQuote<CR>g@
+vnoremap <silent> <leader>" :<C-U>call DoubleQuote(visualmode(), 1)<CR>
+function! DoubleQuote(type, ...)
+    let l:sel_save = &selection
+    let &selection = 'inclusive'
+    let reg_save=@@
+    if a:0  " Invoked from Visual mode, use gv to re-select what was just selected
+        silent exe 'normal! gvc""' . "\<esc>P"
+    elseif a:type ==# 'line'
+        silent exe "normal! '[V']" . ':s/^\|$/"/g' . "\<CR>"
+    else
+        silent exe 'normal! `[v`]c""' . "\<esc>P"
+    endif
+    let &selection = l:sel_save
+    let @@=reg_save
+endfunction

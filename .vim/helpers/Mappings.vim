@@ -28,7 +28,6 @@ nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:Airlin
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
 
 " Put marks around things.
-vnoremap <leader>" c""<esc>P`[v`]
 vnoremap <leader>' c''<esc>P`[v`]
 vnoremap <leader>* c**<esc>P`[v`]
 vnoremap <leader>( c()<esc>P`[v`]
