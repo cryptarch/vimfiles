@@ -130,6 +130,10 @@ function UpdateModifiable()
 endfunction
 autocmd BufReadPost * call UpdateModifiable()
 
+" Prefill registers
+let @d = strftime("%F")
+let @s = '¯\_(ツ)_/¯'
+
 set clipboard-=autoselect
 if $DISPLAY == "" || !has('x11')
     set mouse="r"

@@ -125,10 +125,6 @@ nnoremap <silent> <C-L> :wincmd l<CR>
 " Command to open help in a vertical split.
 cnoreabbrev vh vert botright help
 
-" Insert the date.
-nnoremap <leader>d a<C-R>=strftime("%F")<CR><esc>
-inoremap <leader>d <C-R>=strftime("%F")<CR>
-
 " Grab current filename, eg to paste into another file
 nnoremap <silent> <leader>% :let @"=@%<CR>
 
