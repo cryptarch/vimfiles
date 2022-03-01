@@ -1,4 +1,1 @@
-augroup project
-    autocmd!
-    autocmd BufRead,BufNewFile *.h,*.c set filetype=c
-augroup END
+au BufNewFile,BufRead *.h,*.c set filetype=c
