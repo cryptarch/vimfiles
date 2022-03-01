@@ -10,9 +10,6 @@
 "onoremap <silent> il :<C-U>normal! 0v$<CR>
 onoremap <silent> al :<C-U>normal! <S-V><CR>
 
-"" Inner command: treat first few characters as a prompt to be ignored
-"onoremap <silent> ic :<C-U>normal! 3\|v$<CR>
-
 " Simplify working with clipboard and primary selection
 if has('x11') && $DISPLAY != ""
     nnoremap + :let @+=@0<CR>
@@ -69,27 +66,6 @@ function! CapitaliseInitials(type, ...)
     let @@=reg_save
 endfunction
 
-"" Execute text captured by motion as an external filter (i.e. shell command)
-"nnoremap <silent> X :set opfunc=ExecuteThatThing<CR>g@
-"vnoremap <silent> X :<C-U>call ExecuteThatThing(visualmode(), 1)<CR>
-"function! ExecuteThatThing(type, ...)
-    "let l:sel_save = &selection
-    "let &selection = 'inclusive'
-    "let l:reg_save = @@
-    "if a:0  " Invoked from Visual mode, use gv command.
-        "silent exe "normal! gvy`>"
-    "elseif a:type ==# 'line'
-        "silent exe "normal! '[V']y`>"
-    "else
-        "silent exe "normal! `[v`]y`>"
-    "endif
-    "silent exec "r ! " . escape(@", "%!#\r\n")
-    "let &selection = l:sel_save
-    "let @@=l:reg_save
-"endfunction
-"
-"nmap <Return> Xic
-
 " Do join (J) as an operation
 nnoremap <silent> <leader>j :set opfunc=Join<CR>g@
 vnoremap <silent> <leader>j :<C-U>call Join(visualmode(), 1)<CR>
@@ -106,4 +82,39 @@ function! Join(type, ...)
     endif
     let &selection = l:sel_save
     let @@=l:reg_save
+endfunction
+
+" Mask operation, eg for hiding passwords
+nnoremap <silent> <leader>m :set opfunc=Mask<CR>g@
+vnoremap <silent> <leader>m :<C-U>call Mask(visualmode(), 1)<CR>
+function! Mask(type, ...)
+    let l:sel_save = &selection
+    let &selection = 'inclusive'
+    let l:reg_save = @@
+    if a:0  " Invoked from Visual mode, use gv command.
+        silent exe "normal! gvrX"
+    elseif a:type ==# 'line'
+        silent exe "normal! '[V']rX"
+    else
+        silent exe "normal! `[v`]rX"
+    endif
+    let &selection = l:sel_save
+    let @@=l:reg_save
+endfunction
+
+nnoremap <silent> <leader>" :set opfunc=DoubleQuote<CR>g@
+vnoremap <silent> <leader>" :<C-U>call DoubleQuote(visualmode(), 1)<CR>
+function! DoubleQuote(type, ...)
+    let l:sel_save = &selection
+    let &selection = 'inclusive'
+    let reg_save=@@
+    if a:0  " Invoked from Visual mode, use gv to re-select what was just selected
+        silent exe 'normal! gvc""' . "\<esc>P"
+    elseif a:type ==# 'line'
+        silent exe "normal! '[V']" . ':s/^\|$/"/g' . "\<CR>"
+    else
+        silent exe 'normal! `[v`]c""' . "\<esc>P"
+    endif
+    let &selection = l:sel_save
+    let @@=reg_save
 endfunction

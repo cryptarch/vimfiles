@@ -28,7 +28,6 @@ nnoremap <leader>cd :colorscheme orclord \|: let g:airline_theme='jet' \|:Airlin
 nnoremap <leader>cl :colorscheme fall \|: let g:airline_theme='lucius' \|:AirlineRefresh<CR>
 
 " Put marks around things.
-vnoremap <leader>" c""<esc>P`[v`]
 vnoremap <leader>' c''<esc>P`[v`]
 vnoremap <leader>* c**<esc>P`[v`]
 vnoremap <leader>( c()<esc>P`[v`]
@@ -126,10 +125,6 @@ nnoremap <silent> <C-L> :wincmd l<CR>
 " Command to open help in a vertical split.
 cnoreabbrev vh vert botright help
 
-" Insert the date.
-nnoremap <leader>d a<C-R>=strftime("%F")<CR><esc>
-inoremap <leader>d <C-R>=strftime("%F")<CR>
-
 " Grab current filename, eg to paste into another file
 nnoremap <silent> <leader>% :let @"=@%<CR>
 
@@ -139,6 +134,10 @@ inoremap <leader>u <C-R>=systemlist("uuidgen")[0]<CR>
 
 " Make gf open a new file if it doesn't exist.
 noremap gf :e <cfile><CR>
+
+" Work around gx/netrw bug
+" https://vi.stackexchange.com/a/22505
+nnoremap gx :!xdg-open <cWORD><CR><CR>
 
 inoremap <C-P> <C-R>0
 
