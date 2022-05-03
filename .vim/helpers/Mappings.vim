@@ -70,7 +70,6 @@ endfunction
 "   http://vim.wikia.com/wiki/Insert_newline_without_entering_insert_mode
 nnoremap <leader>O O<Esc>j
 nnoremap <leader>o o<Esc>k
-inoremap <C-O>     <Esc>O
 
 " Push current word left or right.
 " Ref: http://vim.wikia.com/wiki/Swapping_characters,_words_and_lines
