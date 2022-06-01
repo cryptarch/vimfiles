@@ -29,6 +29,9 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 
+" Override that tab behavior for certain directories
+autocmd BufRead,BufNewFile ~/src/gnu/datamash/* setlocal ts=2 sw=2 sts=2
+
 " ins-completion and popup menu
 set completeopt=menuone,popup,noinsert
 
@@ -99,10 +102,6 @@ augroup resCur
     autocmd!
     autocmd BufWinEnter * call RestoreCursor()
 augroup END
-
-" Permit per-project vimrc files but in that case run vim securely.
-set exrc
-set secure
 
 " Don't continue commenting on new lines.
 " Ref: http://vim.wikia.com/wiki/Disable_automatic_comment_insertion
