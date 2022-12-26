@@ -90,6 +90,7 @@ set hidden
 
 " Control what information gets preserved between sessions
 set viminfo='128,<64,s32,h
+set viminfofile=~/.vim/info
 
 " Restore last known cursor position:
 function! RestoreCursor()
