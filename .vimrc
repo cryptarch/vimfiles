@@ -1,8 +1,3 @@
-if exists('+packages')
-    packload
-    silent! helptags ALL
-endif
-
 " Permit use of the mouse.
 set mouse=a
 
@@ -165,3 +160,8 @@ runtime helpers/ale_config.vim
 runtime helpers/Mappings.vim
 runtime helpers/Operators.vim
 runtime helpers/cmdwin_config.vim
+
+if exists('+packages')
+    packload
+    silent! helptags ALL
+endif
